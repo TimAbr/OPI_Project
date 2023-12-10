@@ -5,39 +5,36 @@
 
 using namespace std;
 
-string Entered_Words[65];
+const int TotalWordsCount = 5;
+string Generated_Words[TotalWordsCount]{};
 int Num_Word{0};
 
 int GetRandomNumber(int min,int max){
-    srand(time(NULL));
-    int num = min+rand()%(max-min+1);
-    return num;
+    return min+rand()%(max-min+1);
 } 
 
-string Return_Word(int);
+void Return_Word(int);
 
 int main(){
     int Letters_Amount;
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    for (int n =1;n<=10;n++){
-        cout<<" Введите количество букв в "<< (Num_Word+1) << " слове: ";
-        cin>>Letters_Amount;
-        cout<<"\n Ваше случайное слово: "<<Return_Word(Letters_Amount)<<endl;
+    for (int n=1;n<=TotalWordsCount;n++){
+        Letters_Amount = GetRandomNumber(5,8);
+        Return_Word(Letters_Amount);
     }
-    cin>>Letters_Amount;
+
+    for (auto word: Generated_Words) cout << word;
+    cout << endl;
+
     return 0;
 }
 
-string Return_Word(int letter){
+void Return_Word(int letter){
     string Word;
     fstream file;
-    int Flag =false;
-    if ((letter >8) or (letter<5)){
-        Flag=true;
-        cout<<"\n некорректное значение";
-    }
-    while(!Flag){
+    int Flag = false;
+    do{
 
         int Word_Index = GetRandomNumber(1,100);
 
@@ -56,15 +53,11 @@ string Return_Word(int letter){
                 break;
         }
 
-        if (file.is_open()) { 
-                Flag = true;
-                for (int lineno = 1; (lineno <= Word_Index) && getline(file,Word); lineno++);
-                for(int i = 0; i<=Num_Word; i++){ 
-                    if (Entered_Words[i] == Word){
-                        Flag=false;
-                    }
-                }
-
+        
+        if (file.is_open()) {
+            for (int lineno = 1; (lineno <= Word_Index) && getline(file,Word); lineno++);
+            for (int i = 0; !Flag && i<Num_Word; i++)
+                Flag = (Generated_Words[i] == Word);
         }
         else{    
             cout<<"Error. Cannot open file"<<endl;
@@ -72,8 +65,8 @@ string Return_Word(int letter){
 
         file.close();
     }
+    while(Flag);
 
+    Generated_Words[Num_Word]=Word;
     Num_Word++;
-    Entered_Words[Num_Word]=Word;
-    return Word;
 }
