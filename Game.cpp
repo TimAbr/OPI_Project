@@ -8,7 +8,7 @@
 using namespace std;
 
 const int TotalWordsCount = 5;
-string Generated_Words[65]{};
+string Processed_Words[32]{};
 int Num_Word{0};
 
 int GetRandomNumber(int min,int max){
@@ -38,7 +38,7 @@ int main(){
     
     while (true){   
         switch ((int)(CorrectInputs / 3)){
-            // оепбюъ ярюдхъ ббндю 5 якнб
+            // О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫ 5 О©╫О©╫О©╫О©╫
             case 0:
                 FirstStageWord = Return_Word(5);
                 cout << "Generated word: " << FirstStageWord << endl;
@@ -54,7 +54,7 @@ int main(){
                         
                 break;
 
-            // оепбюъ ярюдхъ ббндю 6 якнб
+            // О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫ 6 О©╫О©╫О©╫О©╫
             case 1:
                 FirstStageWord = Return_Word(6);
                 cout << "Generated word: " << FirstStageWord << endl;
@@ -70,7 +70,7 @@ int main(){
                         
                 break;
 
-            // оепбюъ ярюдхъ ббндю 7 якнб
+            // О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫ 7 О©╫О©╫О©╫О©╫
             case 2:
                 FirstStageWord = Return_Word(7);
                 cout << "Generated word: " << FirstStageWord << endl;
@@ -86,7 +86,7 @@ int main(){
                         
                 break;
 
-            // оепбюъ ярюдхъ ббндю 8 якнб
+            // О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫ 8 О©╫О©╫О©╫О©╫
             case 3:
                 FirstStageWord = Return_Word(8);
                 cout << "Generated word: " << FirstStageWord << endl;
@@ -102,7 +102,7 @@ int main(){
                     
                 break;
                 
-            //  брнпюъ ярюдхъ ббндю
+            //  О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫
             case 4:
                 for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
                 
@@ -129,7 +129,7 @@ int main(){
                 
                 break;
             
-            //  рперэъ ярюдхъ ббндю
+            //  О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫
             case 5:
                 for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
                 
@@ -156,7 +156,7 @@ int main(){
                 
                 break;
 
-            //  вербепрюъ ярюдхъ ббндю
+            //  О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫
             case 6:
                 for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
                 
@@ -183,7 +183,7 @@ int main(){
                 
                 break;
 
-            //  оърюъ ярюдхъ ббндю
+            //  О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫
             case 7:
                 for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
                 
@@ -246,7 +246,7 @@ string Return_Word(int letters){
         if (file.is_open()) {
             for (int lineno = 1; (lineno <= Word_Index) && getline(file,Word); lineno++);
             for (int i = 0; !Flag && i<Num_Word; i++)
-                Flag = (Generated_Words[i] == Word);
+                Flag = (Processed_Words[i] == Word);
         }
         else{    
             cout<<"Error. Cannot open file"<<endl;
@@ -255,7 +255,7 @@ string Return_Word(int letters){
         file.close();
     }
     while(Flag);
-
+    Processed_Words[Num_Word++] = Word;
     return Word.substr(0, letters);
 }
 
