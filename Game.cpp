@@ -41,14 +41,16 @@ int main(){
             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 5 ï¿½ï¿½ï¿½ï¿½
             case 0:
                 FirstStageWord = Return_Word(5);
-                cout << "Generated word: " << FirstStageWord << endl;
+                cout << "1 ÝÒÀÏ 1 ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 + 1 << endl;
+                cout << "Ñãåíåðèðîâàííîå ñëîâî: " << FirstStageWord << endl;
+                cout << "Âàøå ñëîâî: ";
                 getline(cin, InputData);
                 if (Reverse(InputData) == FirstStageWord){ 
-                    cout << "Correct entering" << endl;
+                    cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
                     CorrectInputs ++;
                 }
                 else {
-                    cout << "Inorrect entering" << endl;
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl;
                     CorrectInputs = 0;
                 }
                         
@@ -57,14 +59,16 @@ int main(){
             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 6 ï¿½ï¿½ï¿½ï¿½
             case 1:
                 FirstStageWord = Return_Word(6);
-                cout << "Generated word: " << FirstStageWord << endl;
+                cout << "1 ÝÒÀÏ 2 ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 + 1 << endl;
+                cout << "Ñãåíåðèðîâàííîå ñëîâî: " << FirstStageWord << endl;
+                cout << "Âàøå ñëîâî: ";
                 getline(cin, InputData);
                 if (Reverse(InputData) == FirstStageWord){ 
-                    cout << "Correct entering" << endl;
+                    cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
                     CorrectInputs ++;
                 }
                 else {
-                    cout << "Inorrect entering" << endl;
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl;
                     CorrectInputs = 0;
                 }
                         
@@ -73,14 +77,16 @@ int main(){
             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 7 ï¿½ï¿½ï¿½ï¿½
             case 2:
                 FirstStageWord = Return_Word(7);
-                cout << "Generated word: " << FirstStageWord << endl;
+                cout << "1 ÝÒÀÏ 3 ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 + 1 << endl;
+                cout << "Ñãåíåðèðîâàííîå ñëîâî: " << FirstStageWord << endl;
+                cout << "Âàøå ñëîâî: ";
                 getline(cin, InputData);
                 if (Reverse(InputData) == FirstStageWord){ 
-                    cout << "Correct entering" << endl;
+                    cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
                     CorrectInputs ++;
                 }
                 else {
-                    cout << "Inorrect entering" << endl;
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl;
                     CorrectInputs = 0;
                 }
                         
@@ -89,14 +95,16 @@ int main(){
             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 8 ï¿½ï¿½ï¿½ï¿½
             case 3:
                 FirstStageWord = Return_Word(8);
-                cout << "Generated word: " << FirstStageWord << endl;
+                cout << "1 ÝÒÀÏ 4 ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 + 1 << endl;
+                cout << "Ñãåíåðèðîâàííîå ñëîâî: " << FirstStageWord << endl;
+                cout << "Âàøå ñëîâî: ";
                 getline(cin, InputData);
                 if (Reverse(InputData) == FirstStageWord){ 
-                    cout << "Correct entering" << endl;
+                    cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
                     CorrectInputs ++;
                 }
                 else {
-                    cout << "Inorrect entering" << endl;
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl;
                     CorrectInputs = 0;
                 }
                     
@@ -105,25 +113,26 @@ int main(){
             //  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
             case 4:
                 for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
-                
-                cout << "Stage 2. Generated word: ";
+
+                cout << "2 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 + 1 << endl;
+                cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
                 for (string word: SecondStageWords) cout << word << " ";
-                cout << endl;
+                cout << "\nÂàøà ïîñëåäîâàòåëüíîñòü: ";
                 getline(cin, InputData);
                 UsersWordsList = Split(InputData);
                 if (size(UsersWordsList) == TotalWordsCount){
                     if (InputCheckSecondStep(UsersWordsList, SecondStageWords)){
-                        cout << "Correct entering" << endl;
+                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
                         CorrectInputs++;
                     }
                     else{
-                        cout << "CHMOOOOOOOOOOOOOOOO" << endl << endl;
+                        cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
                         CorrectInputs = 0;
                     }
                 }
                 // Error
                 else{
-                    cout << "CHMOOOOOOOOOOOOOOOO" << endl << endl;
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
                     CorrectInputs = 0;
                 }
                 
@@ -133,24 +142,25 @@ int main(){
             case 5:
                 for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
                 
-                cout << "Stage 2. Generated word: ";
+                cout << "3 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 + 1 << endl;
+                cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
                 for (string word: SecondStageWords) cout << word << " ";
-                cout << endl;
+                cout << "\nÂàøà ïîñëåäîâàòåëüíîñòü: ";
                 getline(cin, InputData);
                 UsersWordsList = Split(InputData);
                 if (size(UsersWordsList) == TotalWordsCount){
                     if (InputCheckThirdStep(UsersWordsList, SecondStageWords)){
-                        cout << "Correct entering" << endl;
+                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
                         CorrectInputs++;
                     }
                     else{
-                        cout << "CHMOOOOOOOOOOOOOOOO" << endl << endl;
+                        cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
                         CorrectInputs = 0;
                     }
                 }
                 // Error
                 else{
-                    cout << "CHMOOOOOOOOOOOOOOOO" << endl << endl;
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
                     CorrectInputs = 0;
                 }
                 
@@ -160,24 +170,25 @@ int main(){
             case 6:
                 for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
                 
-                cout << "Stage 2. Generated word: ";
+                cout << "4 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 + 1 << endl;
+                cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
                 for (string word: SecondStageWords) cout << word << " ";
-                cout << endl;
+                cout << "\nÂàøà ïîñëåäîâàòåëüíîñòü: ";
                 getline(cin, InputData);
                 UsersWordsList = Split(InputData);
                 if (size(UsersWordsList) == TotalWordsCount){
                     if (InputCheckForthStep(UsersWordsList, SecondStageWords)){
-                        cout << "Correct entering" << endl;
+                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
                         CorrectInputs++;
                     }
                     else{
-                        cout << "CHMOOOOOOOOOOOOOOOO" << endl << endl;
+                        cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
                         CorrectInputs = 0;
                     }
                 }
                 // Error
                 else{
-                    cout << "CHMOOOOOOOOOOOOOOOO" << endl << endl;
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
                     CorrectInputs = 0;
                 }
                 
@@ -187,24 +198,25 @@ int main(){
             case 7:
                 for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
                 
-                cout << "Stage 2. Generated word: ";
+                cout << "5 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 + 1 << endl;
+                cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
                 for (string word: SecondStageWords) cout << word << " ";
-                cout << endl;
+                cout << "\nÂàøà ïîñëåäîâàòåëüíîñòü: ";
                 getline(cin, InputData);
                 UsersWordsList = Split(InputData);
                 if (size(UsersWordsList) == TotalWordsCount){
                     if (InputCheckFifthStep(UsersWordsList, SecondStageWords)){
-                        cout << "Correct entering" << endl;
+                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
                         CorrectInputs++;
                     }
                     else{
-                        cout << "CHMOOOOOOOOOOOOOOOO" << endl << endl;
+                        cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
                         CorrectInputs = 0;
                     }
                 }
                 // Error
                 else{
-                    cout << "CHMOOOOOOOOOOOOOOOO" << endl << endl;
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
                     CorrectInputs = 0;
                 }
                 
