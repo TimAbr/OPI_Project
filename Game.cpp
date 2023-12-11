@@ -41,7 +41,7 @@ int main(){
             // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 5 пїЅпїЅпїЅпїЅ
             case 0:
                 FirstStageWord = Return_Word(5);
-                cout << "1 ЭТАП 1 СТАДИЯ. Правильно введено: " << CorrectInputs % 3 + 1 << endl;
+                cout << "1 ЭТАП 1 СТАДИЯ. Правильно введено: " << CorrectInputs % 3 << endl;
                 cout << "Сгенерированное слово: " << FirstStageWord << endl;
                 cout << "Ваше слово: ";
                 getline(cin, InputData);
@@ -59,7 +59,7 @@ int main(){
             // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 6 пїЅпїЅпїЅпїЅ
             case 1:
                 FirstStageWord = Return_Word(6);
-                cout << "1 ЭТАП 2 СТАДИЯ. Правильно введено: " << CorrectInputs % 3 + 1 << endl;
+                cout << "1 ЭТАП 2 СТАДИЯ. Правильно введено: " << CorrectInputs % 3 << endl;
                 cout << "Сгенерированное слово: " << FirstStageWord << endl;
                 cout << "Ваше слово: ";
                 getline(cin, InputData);
@@ -77,7 +77,7 @@ int main(){
             // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 7 пїЅпїЅпїЅпїЅ
             case 2:
                 FirstStageWord = Return_Word(7);
-                cout << "1 ЭТАП 3 СТАДИЯ. Правильно введено: " << CorrectInputs % 3 + 1 << endl;
+                cout << "1 ЭТАП 3 СТАДИЯ. Правильно введено: " << CorrectInputs % 3 << endl;
                 cout << "Сгенерированное слово: " << FirstStageWord << endl;
                 cout << "Ваше слово: ";
                 getline(cin, InputData);
@@ -95,7 +95,7 @@ int main(){
             // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 8 пїЅпїЅпїЅпїЅ
             case 3:
                 FirstStageWord = Return_Word(8);
-                cout << "1 ЭТАП 4 СТАДИЯ. Правильно введено: " << CorrectInputs % 3 + 1 << endl;
+                cout << "1 ЭТАП 4 СТАДИЯ. Правильно введено: " << CorrectInputs % 3 << endl;
                 cout << "Сгенерированное слово: " << FirstStageWord << endl;
                 cout << "Ваше слово: ";
                 getline(cin, InputData);
@@ -114,7 +114,7 @@ int main(){
             case 4:
                 for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
 
-                cout << "2 ЭТАП. Правильно введено: " << CorrectInputs % 3 + 1 << endl;
+                cout << "2 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
                 cout << "Сгенерированная последовательность: ";
                 for (string word: SecondStageWords) cout << word << " ";
                 cout << "\nВаша последовательность: ";
@@ -142,7 +142,7 @@ int main(){
             case 5:
                 for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
                 
-                cout << "3 ЭТАП. Правильно введено: " << CorrectInputs % 3 + 1 << endl;
+                cout << "3 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
                 cout << "Сгенерированная последовательность: ";
                 for (string word: SecondStageWords) cout << word << " ";
                 cout << "\nВаша последовательность: ";
@@ -170,7 +170,7 @@ int main(){
             case 6:
                 for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
                 
-                cout << "4 ЭТАП. Правильно введено: " << CorrectInputs % 3 + 1 << endl;
+                cout << "4 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
                 cout << "Сгенерированная последовательность: ";
                 for (string word: SecondStageWords) cout << word << " ";
                 cout << "\nВаша последовательность: ";
@@ -198,7 +198,7 @@ int main(){
             case 7:
                 for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
                 
-                cout << "5 ЭТАП. Правильно введено: " << CorrectInputs % 3 + 1 << endl;
+                cout << "5 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
                 cout << "Сгенерированная последовательность: ";
                 for (string word: SecondStageWords) cout << word << " ";
                 cout << "\nВаша последовательность: ";
@@ -275,7 +275,8 @@ string Reverse(string Line){
     string Result{};
     int StartCheck = Line.find_first_not_of(' ');
     int EndCheck = Line.find_last_not_of(' ');
-    for (int i = EndCheck - 1;i >= StartCheck;Result += Line[i], i--);
+    for (int i = EndCheck;i >= StartCheck;Result += Line[i--]);
+        
     return Result;
 }
 
@@ -329,7 +330,7 @@ bool InputCheckForthStep(vector<string> UsersWords, string GenWords[TotalWordsCo
     }
     return true;
 }
-bool InputCheckThirdStep(vector<string> UsersWords, string GenWords[TotalWordsCount]){
+bool InputCheckFifthStep(vector<string> UsersWords, string GenWords[TotalWordsCount]){
     for (int i = 0;i < TotalWordsCount;i++){
         if (Reverse(UsersWords[i]) != GenWords[i]) return false;
     }
