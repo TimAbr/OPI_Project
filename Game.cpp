@@ -16,12 +16,14 @@ int GetRandomNumber(int min,int max){
 } 
 
 string Return_Word(int);
+string Reverse(string);
 vector <string> Split(string);
 
 bool InputCheckFirstStep(string, string);
 bool InputCheckSecondStep(vector<string>, string[TotalWordsCount]);
-bool InputCheckThirdStep(vector<string>, string);
-
+bool InputCheckThirdStep(vector<string>, string[TotalWordsCount]);
+bool InputCheckForthStep(vector<string>, string[TotalWordsCount]);
+bool InputCheckFifthStep(vector<string>, string[TotalWordsCount]);
 int main(){
     int CorrectInputs{0};
     string FirstStageWord{};
@@ -40,7 +42,7 @@ int main(){
                 FirstStageWord = Return_Word(5);
                 cout << "Generated word: " << FirstStageWord << endl;
                 getline(cin, InputData);
-                if (InputCheckFirstStep(InputData, FirstStageWord)){ 
+                if (Reverse(InputData) == FirstStageWord){ 
                     cout << "Correct entering" << endl;
                     CorrectInputs ++;
                 }
@@ -56,7 +58,7 @@ int main(){
                 FirstStageWord = Return_Word(6);
                 cout << "Generated word: " << FirstStageWord << endl;
                 getline(cin, InputData);
-                if (InputCheckFirstStep(InputData, FirstStageWord)){ 
+                if (Reverse(InputData) == FirstStageWord){ 
                     cout << "Correct entering" << endl;
                     CorrectInputs ++;
                 }
@@ -72,7 +74,7 @@ int main(){
                 FirstStageWord = Return_Word(7);
                 cout << "Generated word: " << FirstStageWord << endl;
                 getline(cin, InputData);
-                if (InputCheckFirstStep(InputData, FirstStageWord)){ 
+                if (Reverse(InputData) == FirstStageWord){ 
                     cout << "Correct entering" << endl;
                     CorrectInputs ++;
                 }
@@ -88,7 +90,7 @@ int main(){
                 FirstStageWord = Return_Word(8);
                 cout << "Generated word: " << FirstStageWord << endl;
                 getline(cin, InputData);
-                if (InputCheckFirstStep(InputData, FirstStageWord)){ 
+                if (Reverse(InputData) == FirstStageWord){ 
                     cout << "Correct entering" << endl;
                     CorrectInputs ++;
                 }
@@ -152,6 +154,35 @@ int main(){
                 }
                 
                 break;
+
+            //  ×ÅÒÂÅÐÒÀß ÑÒÀÄÈß ÂÂÎÄÀ
+            case 6:
+                for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
+                
+                cout << "Stage 2. Generated word: ";
+                for (string word: SecondStageWords) cout << word << " ";
+                cout << endl;
+                getline(cin, InputData);
+                UsersWordsList = Split(InputData);
+                if (size(UsersWordsList) == TotalWordsCount){
+                    if (InputCheckForthStep(UsersWordsList, SecondStageWords)){
+                        cout << "Correct entering" << endl;
+                        CorrectInputs++;
+                    }
+                    else{
+                        cout << "CHMOOOOOOOOOOOOOOOO" << endl << endl;
+                        CorrectInputs = 0;
+                    }
+                }
+                // Error
+                else{
+                    cout << "CHMOOOOOOOOOOOOOOOO" << endl << endl;
+                    CorrectInputs = 0;
+                }
+                
+                break;
+
+            
         }
     }
 
@@ -202,20 +233,12 @@ string Return_Word(int letters){
     return Word.substr(0, letters);
 }
 
-bool InputCheckFirstStep(string UsersWord, string CorrectWord){
-
-    int StartCheck = UsersWord.find_first_not_of(' ');
-    int EndCheck = UsersWord.find_last_not_of(' ');
-
-    if (EndCheck - StartCheck != size(CorrectWord) - 1){
-        return false;
-    }
-    else{
-        for (int i = 0; i < size(CorrectWord); i++)
-            if (UsersWord[StartCheck + i] != CorrectWord[size(CorrectWord) - i - 1])
-                return false;
-    }
-    return true;
+string Reverse(string Line){
+    string Result{};
+    int StartCheck = Line.find_first_not_of(' ');
+    int EndCheck = Line.find_last_not_of(' ');
+    for (int i = EndCheck - 1;i >= StartCheck;Result += Line[i], i--);
+    return Result;
 }
 
 vector <string> Split(string UsersLine){
@@ -251,6 +274,22 @@ bool InputCheckThirdStep(vector<string> UsersWords, string GenWords[TotalWordsCo
     for (int i = 0;i < TotalWordsCount;i++){
         if (UsersWords[i] != GenWords[i]) return false;
     }
-
     return true;
 }
+bool InputCheckForthStep(vector<string> UsersWords, string GenWords[TotalWordsCount]){
+    
+    for (int i = 0;i < TotalWordsCount;i++){
+        bool flag = false;
+        for (int j = 0;!flag && j < TotalWordsCount;j++){
+            if (Reverse(UsersWords.back()) == GenWords[j]){
+                UsersWords.pop_back();
+                flag = true;
+            }
+        }
+        if (!flag)
+            return false;
+    }
+    return true;
+}
+
+
