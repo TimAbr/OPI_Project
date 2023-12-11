@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <ctime>
-#include <Windows.h>
+#include <windows.h>
 #include <string>
 #include <vector>
 
@@ -15,34 +15,124 @@ int GetRandomNumber(int min,int max){
     return min+rand()%(max-min+1);
 } 
 
-void Return_Word(int);
+string Return_Word(int);
 bool InputCheckFirstStep(string, string);
 bool InputCheckSecondStep(string, string [TotalWordsCount]);
 
 int main(){
-    int Letters_Amount;
+    int CorrectInputs{0};
+    string FirstStageWord{};
+    string SecondStageWords[TotalWordsCount]{};
+    string InputData{};// Users input 
+
+    srand(time(NULL));
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    for (int n=1;n<=TotalWordsCount;n++){
-        Letters_Amount = GetRandomNumber(5,8);
-        Return_Word(Letters_Amount);
+    
+    while (true){   
+        switch ((int)(CorrectInputs / 3)){
+            // ÏÅÐÂÀß ÑÒÀÄÈß ÂÂÎÄÀ 5 ÑËÎÂ
+            case 0:
+                FirstStageWord = Return_Word(5);
+                cout << "Generated word: " << FirstStageWord << endl;
+                getline(cin, InputData);
+                if (InputCheckFirstStep(InputData, FirstStageWord)){ 
+                    cout << "Correct entering" << endl;
+                    CorrectInputs ++;
+                }
+                else {
+                    cout << "Inorrect entering" << endl;
+                    CorrectInputs = 0;
+                }
+                        
+                break;
+
+            // ÏÅÐÂÀß ÑÒÀÄÈß ÂÂÎÄÀ 6 ÑËÎÂ
+            case 1:
+                FirstStageWord = Return_Word(6);
+                cout << "Generated word: " << FirstStageWord << endl;
+                getline(cin, InputData);
+                if (InputCheckFirstStep(InputData, FirstStageWord)){ 
+                    cout << "Correct entering" << endl;
+                    CorrectInputs ++;
+                }
+                else {
+                    cout << "Inorrect entering" << endl;
+                    CorrectInputs = 0;
+                }
+                        
+                break;
+
+            // ÏÅÐÂÀß ÑÒÀÄÈß ÂÂÎÄÀ 7 ÑËÎÂ
+            case 2:
+                FirstStageWord = Return_Word(7);
+                cout << "Generated word: " << FirstStageWord << endl;
+                getline(cin, InputData);
+                if (InputCheckFirstStep(InputData, FirstStageWord)){ 
+                    cout << "Correct entering" << endl;
+                    CorrectInputs ++;
+                }
+                else {
+                    cout << "Inorrect entering" << endl;
+                    CorrectInputs = 0;
+                }
+                        
+                break;
+
+            // ÏÅÐÂÀß ÑÒÀÄÈß ÂÂÎÄÀ 8 ÑËÎÂ
+            case 3:
+                FirstStageWord = Return_Word(8);
+                cout << "Generated word: " << FirstStageWord << endl;
+                getline(cin, InputData);
+                if (InputCheckFirstStep(InputData, FirstStageWord)){ 
+                    cout << "Correct entering" << endl;
+                    CorrectInputs ++;
+                }
+                else {
+                    cout << "Inorrect entering" << endl;
+                    CorrectInputs = 0;
+                }
+                    
+                break;
+                
+            //  ÂÒÎÐÀß ÑÒÀÄÈß ÂÂÎÄÀ
+            case 4:
+                for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
+                
+                cout << "Stage 2. Generated word: ";
+                for (string word: SecondStageWords) cout << word << " ";
+                cout << endl;
+                getline(cin, InputData);
+                if (InputCheckSecondStep(InputData, SecondStageWords)){
+                    cout << "Correct entering" << endl;
+                    CorrectInputs++;
+                }
+                else{
+                    cout << "CHMOOOOOOOOOOOOOOOO" << endl << endl;
+                    CorrectInputs = 0;
+                }
+
+                break;
+        }
     }
 
-    for (auto word: Generated_Words) cout << word;
-    cout << endl;
+    // Check the first stage with the first word from the second stage
+    
 
     return 0;
 }
 
-void Return_Word(int letter){
+string Return_Word(int letters){
+
     string Word;
     fstream file;
-    int Flag = false;
+
+    bool Flag = false;
     do{
 
         int Word_Index = GetRandomNumber(1,100);
 
-        switch (letter){
+        switch (letters){
             case 5: 
                 file.open("5_letters.txt");
                 break;
@@ -71,9 +161,9 @@ void Return_Word(int letter){
     }
     while(Flag);
 
-    Generated_Words[Num_Word]=Word;
-    Num_Word++;
+    return Word.substr(0, letters);
 }
+
 
 bool InputCheckFirstStep(string UsersWord, string CorrectWord){
 
