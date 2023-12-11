@@ -43,7 +43,7 @@ int main(){
                 FirstStageWord = Return_Word(5);
                 cout << "1 ЭТАП 1 СТАДИЯ. Правильно введено: " << CorrectInputs % 3 << endl;
                 cout << "Сгенерированное слово: " << FirstStageWord << endl;
-
+                cout << "Ваше слово: ";
                 getline(cin, InputData);
                 if (Reverse(InputData) == FirstStageWord){ 
                     cout << "ОТВЕТ ВЕРНЫЙ!" << endl;
