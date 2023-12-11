@@ -20,6 +20,7 @@ vector <string> Split(string);
 
 bool InputCheckFirstStep(string, string);
 bool InputCheckSecondStep(vector<string>, string[TotalWordsCount]);
+bool InputCheckThirdStep(vector<string>, string);
 
 int main(){
     int CorrectInputs{0};
@@ -109,6 +110,33 @@ int main(){
                 UsersWordsList = Split(InputData);
                 if (size(UsersWordsList) == TotalWordsCount){
                     if (InputCheckSecondStep(UsersWordsList, SecondStageWords)){
+                        cout << "Correct entering" << endl;
+                        CorrectInputs++;
+                    }
+                    else{
+                        cout << "CHMOOOOOOOOOOOOOOOO" << endl << endl;
+                        CorrectInputs = 0;
+                    }
+                }
+                // Error
+                else{
+                    cout << "CHMOOOOOOOOOOOOOOOO" << endl << endl;
+                    CorrectInputs = 0;
+                }
+                
+                break;
+            
+            //  ÒÐÅÒÜß ÑÒÀÄÈß ÂÂÎÄÀ
+            case 5:
+                for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
+                
+                cout << "Stage 2. Generated word: ";
+                for (string word: SecondStageWords) cout << word << " ";
+                cout << endl;
+                getline(cin, InputData);
+                UsersWordsList = Split(InputData);
+                if (size(UsersWordsList) == TotalWordsCount){
+                    if (InputCheckThirdStep(UsersWordsList, SecondStageWords)){
                         cout << "Correct entering" << endl;
                         CorrectInputs++;
                     }
@@ -216,5 +244,13 @@ bool InputCheckSecondStep(vector<string> UsersWords, string GenWords[TotalWordsC
         if (!flag)
             return false;
     }
+    return true;
+}
+bool InputCheckThirdStep(vector<string> UsersWords, string GenWords[TotalWordsCount]){
+    
+    for (int i = 0;i < TotalWordsCount;i++){
+        if (UsersWords[i] != GenWords[i]) return false;
+    }
+
     return true;
 }
