@@ -49,42 +49,42 @@ int main(){
 
     while (!GameOver){   
         CleanArr(Processed_Words);
-        CorrectInputs = 12;
-        cout << "Ââåäèòå íîìåð óðîâíÿ ñëîæíîñòè:\n";
-        cout << "1) Ñàìûé ëåãêèé. Âûäåëÿåòñÿ áîëüøå âñåãî âðåìåíè.\n";
-        cout << "2) Ïðîñòîé.\n";
-        cout << "3) Ñðåäíèé.\n";
-        cout << "4) Ñëîæíûé.\n";
-        cout << "5) Ýêñïåðò.\n";
+        CorrectInputs = 0;
+        cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã®Ã¬Ã¥Ã° Ã³Ã°Ã®Ã¢Ã­Ã¿ Ã±Ã«Ã®Ã¦Ã­Ã®Ã±Ã²Ã¨:\n";
+        cout << "1) Ã‘Ã Ã¬Ã»Ã© Ã«Ã¥Ã£ÃªÃ¨Ã©. Ã‚Ã»Ã¤Ã¥Ã«Ã¿Ã¥Ã²Ã±Ã¿ Ã¡Ã®Ã«Ã¼Ã¸Ã¥ Ã¢Ã±Ã¥Ã£Ã® Ã¢Ã°Ã¥Ã¬Ã¥Ã­Ã¨.\n";
+        cout << "2) ÃÃ°Ã®Ã±Ã²Ã®Ã©.\n";
+        cout << "3) Ã‘Ã°Ã¥Ã¤Ã­Ã¨Ã©.\n";
+        cout << "4) Ã‘Ã«Ã®Ã¦Ã­Ã»Ã©.\n";
+        cout << "5) ÃÃªÃ±Ã¯Ã¥Ã°Ã².\n";
         getline(cin, InputData);
         HardLevel = stoi(InputData) - 1;
         system("cls");
 
-        // ÏÅÐÂÛÉ ÝÒÀÏ
+        // ÃÃ…ÃÃ‚Ã›Ã‰ ÃÃ’Ã€Ã
         while (!GameOver && CorrectInputs < 12){
             FirstStageWord = Return_Word(5 + CorrectInputs / 3);
-            cout << "1 ÝÒÀÏ "<< CorrectInputs / 3 + 1 << " ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " 
+            cout << "1 ÃÃ’Ã€Ã "<< CorrectInputs / 3 + 1 << " Ã‘Ã’Ã€Ã„ÃˆÃŸ. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " 
                 << CorrectInputs % 3 << endl;
-            cout << "Ñãåíåðèðîâàííîå ñëîâî: " << FirstStageWord << endl;
+            cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã®Ã¥ Ã±Ã«Ã®Ã¢Ã®: " << FirstStageWord << endl;
             Sleep(TimeMemory[HardLevel][0]);
             while(_kbhit()){_getch();}
             system("cls");
-            cout << "1 ÝÒÀÏ "<< CorrectInputs / 3 + 1 << " ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " 
+            cout << "1 ÃÃ’Ã€Ã "<< CorrectInputs / 3 + 1 << " Ã‘Ã’Ã€Ã„ÃˆÃŸ. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " 
                 << CorrectInputs % 3 << endl;
-            cout << "Âàøå ñëîâî: ";
+            cout << "Ã‚Ã Ã¸Ã¥ Ã±Ã«Ã®Ã¢Ã®: ";
 
             getline(cin,InputData);
             UpperCase(InputData);
             if (Reverse(InputData) == FirstStageWord){ 
-                // Ñîîáùåíèå î êîððåêòíîì ââîäå
+                // Ã‘Ã®Ã®Ã¡Ã¹Ã¥Ã­Ã¨Ã¥ Ã® ÃªÃ®Ã°Ã°Ã¥ÃªÃ²Ã­Ã®Ã¬ Ã¢Ã¢Ã®Ã¤Ã¥
                 for (int i = 19; i >= 0; i --){
                     system("cls");
 
-                    cout << "1 ÝÒÀÏ "<< CorrectInputs / 3 + 1 << " ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " 
+                    cout << "1 ÃÃ’Ã€Ã "<< CorrectInputs / 3 + 1 << " Ã‘Ã’Ã€Ã„ÃˆÃŸ. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " 
                         << CorrectInputs % 3 << endl;
-                    cout << "Âàøå ñëîâî: " << InputData << endl;
-                    cout << "Ñãåíåðèðîâàííîå ñëîâî: " << FirstStageWord << endl;
-                    cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                    cout << "Ã‚Ã Ã¸Ã¥ Ã±Ã«Ã®Ã¢Ã®: " << InputData << endl;
+                    cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã®Ã¥ Ã±Ã«Ã®Ã¢Ã®: " << FirstStageWord << endl;
+                    cout << "ÃŽÃ’Ã‚Ã…Ã’ Ã‚Ã…ÃÃÃ›Ã‰!" << endl;
 
                     cout << LoadLine.substr(0,i);
 
@@ -95,40 +95,40 @@ int main(){
                 CorrectInputs++;
             }
             else {
-                cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-                cout << "Íà÷àëüíîå ñëîâî: " << FirstStageWord + "\n" << endl;
+                cout << "Ã‚Ã€ÃŒÃˆ ÃÃ›Ã‹Ã€ Ã„ÃŽÃÃ“Ã™Ã…ÃÃ€ ÃŽÃ˜ÃˆÃÃŠÃ€!" << endl;
+                cout << "ÃÃ Ã·Ã Ã«Ã¼Ã­Ã®Ã¥ Ã±Ã«Ã®Ã¢Ã®: " << FirstStageWord + "\n" << endl;
                 GameOver = true;
             }
         }
 
-        // ÂÒÎÐÎÉ ÝÒÀÏ
+        // Ã‚Ã’ÃŽÃÃŽÃ‰ ÃÃ’Ã€Ã
         while (!GameOver && CorrectInputs < 15){
             
             for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
 
-            cout << "2 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
-            cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+            cout << "2 ÃÃ’Ã€Ã. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " << CorrectInputs % 3 << endl;
+            cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
             for (string word: SecondStageWords) cout << word << " ";
             Sleep(TimeMemory[HardLevel][1]);
             system("cls");
-            //áëîêèðîâêà ââîäà ñèìâîëîâ ïîêà êîíñîëü íå îáíîâëåíà
+            //Ã¡Ã«Ã®ÃªÃ¨Ã°Ã®Ã¢ÃªÃ  Ã¢Ã¢Ã®Ã¤Ã  Ã±Ã¨Ã¬Ã¢Ã®Ã«Ã®Ã¢ Ã¯Ã®ÃªÃ  ÃªÃ®Ã­Ã±Ã®Ã«Ã¼ Ã­Ã¥ Ã®Ã¡Ã­Ã®Ã¢Ã«Ã¥Ã­Ã 
             while(_kbhit()){_getch();}
-            cout << "2 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
-            cout << "\nÂàøà ïîñëåäîâàòåëüíîñòü: ";
+            cout << "2 ÃÃ’Ã€Ã. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " << CorrectInputs % 3 << endl;
+            cout << "\nÃ‚Ã Ã¸Ã  Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
             getline(cin, InputData);
             UpperCase(InputData);
             UsersWordsList = Split(InputData);
             if (size(UsersWordsList) == TotalWordsCount){
                 if (InputCheckSecondStep(UsersWordsList, SecondStageWords)){
-                    // Ñîîáùåíèå î êîððåêòíîì ââîäå
+                    // Ã‘Ã®Ã®Ã¡Ã¹Ã¥Ã­Ã¨Ã¥ Ã® ÃªÃ®Ã°Ã°Ã¥ÃªÃ²Ã­Ã®Ã¬ Ã¢Ã¢Ã®Ã¤Ã¥
                     for (int i = 19; i >= 0; i --){
                         system("cls");
 
-                        cout << "2 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
-                        cout << "Âàøà ïîñëåäîâàòåëüíîñòü: " << InputData << endl;
-                        cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                        cout << "2 ÃÃ’Ã€Ã. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " << CorrectInputs % 3 << endl;
+                        cout << "Ã‚Ã Ã¸Ã  Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: " << InputData << endl;
+                        cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
                         for (string word: SecondStageWords) cout << word << " ";
-                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                        cout << "ÃŽÃ’Ã‚Ã…Ã’ Ã‚Ã…ÃÃÃ›Ã‰!" << endl;
 
                         cout << LoadLine.substr(0,i);
                         Sleep(100);
@@ -138,8 +138,8 @@ int main(){
                     CorrectInputs++;
                 }
                 else {
-                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-                    cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                    cout << "Ã‚Ã€ÃŒÃˆ ÃÃ›Ã‹Ã€ Ã„ÃŽÃÃ“Ã™Ã…ÃÃ€ ÃŽÃ˜ÃˆÃÃŠÃ€!" << endl;
+                    cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
                     for (string word: SecondStageWords) cout << word << " ";
                     cout << endl;
                     GameOver = true;
@@ -147,41 +147,41 @@ int main(){
             }
             // Error
             else {
-                cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-                cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                cout << "Ã‚Ã€ÃŒÃˆ ÃÃ›Ã‹Ã€ Ã„ÃŽÃÃ“Ã™Ã…ÃÃ€ ÃŽÃ˜ÃˆÃÃŠÃ€!" << endl;
+                cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
                 for (string word: SecondStageWords) cout << word << " ";
                 cout << endl;
                 GameOver = true;
             }
         }
 
-        // ÒÐÅÒÈÉ ÝÒÀÏ
+        // Ã’ÃÃ…Ã’ÃˆÃ‰ ÃÃ’Ã€Ã
         while (!GameOver && CorrectInputs < 18){
             for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
             
-            cout << "3 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
-            cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+            cout << "3 ÃÃ’Ã€Ã. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " << CorrectInputs % 3 << endl;
+            cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
             for (string word: SecondStageWords) cout << word << " ";
             Sleep(TimeMemory[HardLevel][1]);
             system("cls");
-            //áëîêèðîâêà ââîäà ñèìâîëîâ ïîêà êîíñîëü íå îáíîâëåíà
+            //Ã¡Ã«Ã®ÃªÃ¨Ã°Ã®Ã¢ÃªÃ  Ã¢Ã¢Ã®Ã¤Ã  Ã±Ã¨Ã¬Ã¢Ã®Ã«Ã®Ã¢ Ã¯Ã®ÃªÃ  ÃªÃ®Ã­Ã±Ã®Ã«Ã¼ Ã­Ã¥ Ã®Ã¡Ã­Ã®Ã¢Ã«Ã¥Ã­Ã 
             while(_kbhit()){_getch();}
-            cout << "3 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
-            cout << "\nÂàøà ïîñëåäîâàòåëüíîñòü: ";
+            cout << "3 ÃÃ’Ã€Ã. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " << CorrectInputs % 3 << endl;
+            cout << "\nÃ‚Ã Ã¸Ã  Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
             getline(cin, InputData);
             UpperCase(InputData);
             UsersWordsList = Split(InputData);
             if (size(UsersWordsList) == TotalWordsCount){
                 if (InputCheckThirdStep(UsersWordsList, SecondStageWords)){
-                    // Ñîîáùåíèå î êîððåêòíîì ââîäå
+                    // Ã‘Ã®Ã®Ã¡Ã¹Ã¥Ã­Ã¨Ã¥ Ã® ÃªÃ®Ã°Ã°Ã¥ÃªÃ²Ã­Ã®Ã¬ Ã¢Ã¢Ã®Ã¤Ã¥
                     for (int i = 19; i >= 0; i --){
                         system("cls");
                         
-                        cout << "3 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
-                        cout << "Âàøà ïîñëåäîâàòåëüíîñòü: " << InputData << endl;
-                        cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                        cout << "3 ÃÃ’Ã€Ã. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " << CorrectInputs % 3 << endl;
+                        cout << "Ã‚Ã Ã¸Ã  Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: " << InputData << endl;
+                        cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
                         for (string word: SecondStageWords) cout << word << " ";
-                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                        cout << "ÃŽÃ’Ã‚Ã…Ã’ Ã‚Ã…ÃÃÃ›Ã‰!" << endl;
                         cout << LoadLine.substr(0,i);
 
                         Sleep(100);
@@ -191,8 +191,8 @@ int main(){
                     CorrectInputs++;
                 }
                 else {
-                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-                    cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                    cout << "Ã‚Ã€ÃŒÃˆ ÃÃ›Ã‹Ã€ Ã„ÃŽÃÃ“Ã™Ã…ÃÃ€ ÃŽÃ˜ÃˆÃÃŠÃ€!" << endl;
+                    cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
                     for (string word: SecondStageWords) cout << word << " ";
                     cout << endl;
                     GameOver = true;
@@ -200,41 +200,41 @@ int main(){
             }
             // Error
             else {
-                cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-                cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                cout << "Ã‚Ã€ÃŒÃˆ ÃÃ›Ã‹Ã€ Ã„ÃŽÃÃ“Ã™Ã…ÃÃ€ ÃŽÃ˜ÃˆÃÃŠÃ€!" << endl;
+                cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
                 for (string word: SecondStageWords) cout << word << " ";
                 cout << endl;
                 GameOver = true;
             }           
         }
 
-        // ×ÅÒÂÅÐÒÛÉ ÝÒÀÏ
+        // Ã—Ã…Ã’Ã‚Ã…ÃÃ’Ã›Ã‰ ÃÃ’Ã€Ã
         while (!GameOver && CorrectInputs < 21){
             for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
             
-            cout << "4 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
-            cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+            cout << "4 ÃÃ’Ã€Ã. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " << CorrectInputs % 3 << endl;
+            cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
             for (string word: SecondStageWords) cout << word << " ";
             Sleep(TimeMemory[HardLevel][1]);
             system("cls");
-            //áëîêèðîâêà ââîäà ñèìâîëîâ ïîêà êîíñîëü íå îáíîâëåíà
+            //Ã¡Ã«Ã®ÃªÃ¨Ã°Ã®Ã¢ÃªÃ  Ã¢Ã¢Ã®Ã¤Ã  Ã±Ã¨Ã¬Ã¢Ã®Ã«Ã®Ã¢ Ã¯Ã®ÃªÃ  ÃªÃ®Ã­Ã±Ã®Ã«Ã¼ Ã­Ã¥ Ã®Ã¡Ã­Ã®Ã¢Ã«Ã¥Ã­Ã 
             while(_kbhit()){_getch();}
-            cout << "4 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
-            cout << "\nÂàøà ïîñëåäîâàòåëüíîñòü: ";
+            cout << "4 ÃÃ’Ã€Ã. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " << CorrectInputs % 3 << endl;
+            cout << "\nÃ‚Ã Ã¸Ã  Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
             getline(cin, InputData);
             UpperCase(InputData);
             UsersWordsList = Split(InputData);
             if (size(UsersWordsList) == TotalWordsCount){
                 if (InputCheckForthStep(UsersWordsList, SecondStageWords)){
-                    // Ñîîáùåíèå î êîððåêòíîì ââîäå
+                    // Ã‘Ã®Ã®Ã¡Ã¹Ã¥Ã­Ã¨Ã¥ Ã® ÃªÃ®Ã°Ã°Ã¥ÃªÃ²Ã­Ã®Ã¬ Ã¢Ã¢Ã®Ã¤Ã¥
                     for (int i = 19; i >= 0; i --){
                         system("cls");
 
-                        cout << "4 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
-                        cout << "Âàøà ïîñëåäîâàòåëüíîñòü: " << InputData << endl;
-                        cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                        cout << "4 ÃÃ’Ã€Ã. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " << CorrectInputs % 3 << endl;
+                        cout << "Ã‚Ã Ã¸Ã  Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: " << InputData << endl;
+                        cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
                         for (string word: SecondStageWords) cout << word << " ";
-                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                        cout << "ÃŽÃ’Ã‚Ã…Ã’ Ã‚Ã…ÃÃÃ›Ã‰!" << endl;
                         cout << LoadLine.substr(0,i);
 
                         Sleep(100);
@@ -244,8 +244,8 @@ int main(){
                     CorrectInputs++;
                 }
                 else {
-                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-                    cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                    cout << "Ã‚Ã€ÃŒÃˆ ÃÃ›Ã‹Ã€ Ã„ÃŽÃÃ“Ã™Ã…ÃÃ€ ÃŽÃ˜ÃˆÃÃŠÃ€!" << endl;
+                    cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
                     for (string word: SecondStageWords) cout << word << " ";
                     cout << endl;
                     GameOver = true;
@@ -253,43 +253,43 @@ int main(){
             }
             // Error
             else {
-                cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-                cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                cout << "Ã‚Ã€ÃŒÃˆ ÃÃ›Ã‹Ã€ Ã„ÃŽÃÃ“Ã™Ã…ÃÃ€ ÃŽÃ˜ÃˆÃÃŠÃ€!" << endl;
+                cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
                 for (string word: SecondStageWords) cout << word << " ";
                 cout << endl;
                 GameOver = true;
             }
         }
 
-        // ÏßÒÛÉ ÝÒÀÏ   
+        // ÃÃŸÃ’Ã›Ã‰ ÃÃ’Ã€Ã   
         while (!GameOver && CorrectInputs < 24){
 
             for (int i = 0;i < TotalWordsCount; SecondStageWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
             
-            cout << "5 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
-            cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+            cout << "5 ÃÃ’Ã€Ã. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " << CorrectInputs % 3 << endl;
+            cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
             for (string word: SecondStageWords) cout << word << " ";
             Sleep(TimeMemory[HardLevel][1]);
             system("cls");
-            //áëîêèðîâêà ââîäà ñèìâîëîâ ïîêà êîíñîëü íå îáíîâëåíà
+            //Ã¡Ã«Ã®ÃªÃ¨Ã°Ã®Ã¢ÃªÃ  Ã¢Ã¢Ã®Ã¤Ã  Ã±Ã¨Ã¬Ã¢Ã®Ã«Ã®Ã¢ Ã¯Ã®ÃªÃ  ÃªÃ®Ã­Ã±Ã®Ã«Ã¼ Ã­Ã¥ Ã®Ã¡Ã­Ã®Ã¢Ã«Ã¥Ã­Ã 
             while(_kbhit()){_getch();}
 
-            cout << "5 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
-            cout << "\nÂàøà ïîñëåäîâàòåëüíîñòü: ";
+            cout << "5 ÃÃ’Ã€Ã. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " << CorrectInputs % 3 << endl;
+            cout << "\nÃ‚Ã Ã¸Ã  Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
             getline(cin, InputData);
             UpperCase(InputData);
             UsersWordsList = Split(InputData);
             if (size(UsersWordsList) == TotalWordsCount){
                 if (InputCheckFifthStep(UsersWordsList, SecondStageWords)){
-                    // Ñîîáùåíèå î êîððåêòíîì ââîäå
+                    // Ã‘Ã®Ã®Ã¡Ã¹Ã¥Ã­Ã¨Ã¥ Ã® ÃªÃ®Ã°Ã°Ã¥ÃªÃ²Ã­Ã®Ã¬ Ã¢Ã¢Ã®Ã¤Ã¥
                     for (int i = 19; i >= 0; i --){
                         system("cls");
 
-                        cout << "5 ÝÒÀÏ. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
-                        cout << "Âàøà ïîñëåäîâàòåëüíîñòü: " << InputData << endl;
-                        cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                        cout << "5 ÃÃ’Ã€Ã. ÃÃ°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã®: " << CorrectInputs % 3 << endl;
+                        cout << "Ã‚Ã Ã¸Ã  Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: " << InputData << endl;
+                        cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
                         for (string word: SecondStageWords) cout << word << " ";
-                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                        cout << "ÃŽÃ’Ã‚Ã…Ã’ Ã‚Ã…ÃÃÃ›Ã‰!" << endl;
                         
                         cout << LoadLine.substr(0,i);
                         Sleep(100);
@@ -299,8 +299,8 @@ int main(){
                     CorrectInputs ++;
                 }
                 else {
-                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-                    cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                    cout << "Ã‚Ã€ÃŒÃˆ ÃÃ›Ã‹Ã€ Ã„ÃŽÃÃ“Ã™Ã…ÃÃ€ ÃŽÃ˜ÃˆÃÃŠÃ€!" << endl;
+                    cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
                     for (string word: SecondStageWords) cout << word << " ";
                     cout << endl;
                     GameOver = true;
@@ -308,8 +308,8 @@ int main(){
             }
             // Error
             else {
-                cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-                cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                cout << "Ã‚Ã€ÃŒÃˆ ÃÃ›Ã‹Ã€ Ã„ÃŽÃÃ“Ã™Ã…ÃÃ€ ÃŽÃ˜ÃˆÃÃŠÃ€!" << endl;
+                cout << "Ã‘Ã£Ã¥Ã­Ã¥Ã°Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã Ã¿ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¼: ";
                 for (string word: SecondStageWords) cout << word << " ";
                 cout << endl;
                 GameOver = true;
@@ -317,15 +317,15 @@ int main(){
         }
     
         if (GameOver){
-            cout << "Ââåäèòå 1, åñëè æåëàåòå ïðîäîëæèòü. Â ïðîòèâíîì ñëó÷àå ââåäèòå 0: ";
+            cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ 1, Ã¥Ã±Ã«Ã¨ Ã¦Ã¥Ã«Ã Ã¥Ã²Ã¥ Ã¯Ã°Ã®Ã¤Ã®Ã«Ã¦Ã¨Ã²Ã¼. Ã‚ Ã¯Ã°Ã®Ã²Ã¨Ã¢Ã­Ã®Ã¬ Ã±Ã«Ã³Ã·Ã Ã¥ Ã¢Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ 0: ";
             getline(cin, InputData);
             GameOver = (InputData == "1") ? false: true;
         }
     }
 
-    cout << "ÈÃÐÀ ÎÊÎÍ×ÅÍÀ." << endl;
+    cout << "ÃˆÃƒÃÃ€ ÃŽÃŠÃŽÃÃ—Ã…ÃÃ€." << endl;
 
-    //÷òîáû êîíñîëü íå çàêðûâàëàñü ñðàçó. Àíàëîã Readln; â äåëôè
+    //Ã·Ã²Ã®Ã¡Ã» ÃªÃ®Ã­Ã±Ã®Ã«Ã¼ Ã­Ã¥ Ã§Ã ÃªÃ°Ã»Ã¢Ã Ã«Ã Ã±Ã¼ Ã±Ã°Ã Ã§Ã³. Ã€Ã­Ã Ã«Ã®Ã£ Readln; Ã¢ Ã¤Ã¥Ã«Ã´Ã¨
     system("pause");
     return 0;
 }
@@ -443,7 +443,7 @@ void CleanArr(string Arr[]){
 }
 void UpperCase(string &Str){
     for (int i = 0;i < Str.length();i++){
-        if ('à' <= Str[i] && Str[i] <= 'ÿ')
+        if ('Ã ' <= Str[i] && Str[i] <= 'Ã¿')
             Str[i] = (unsigned char)Str[i] - 32;
     }
 
