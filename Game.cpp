@@ -38,6 +38,14 @@ int main(){
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     
+    cout << "Введите уровень сложности:\n";
+    cout << "1) Самый легкий. Выделяется больше всего времени.\n";
+    cout << "2) Простой.\n";
+    cout << "3) Средний.\n";
+    cout << "4) Сложный.\n";
+    cout << "5) Эксперт.\n";
+    cin >> HardLevel;
+
     while (true){   
         switch ((int)(CorrectInputs / 3)){
             // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 5 пїЅпїЅпїЅпїЅ
@@ -59,6 +67,15 @@ int main(){
                     cout << "Начальное слово: " << FirstStageWord + "/n" << endl;
                     for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
+
+                    cout << "\nВведите уровень сложности:\n";
+                    cout << "1) Самый легкий. Выделяется больше всего времени.\n";
+                    cout << "2) Простой.\n";
+                    cout << "3) Средний.\n";
+                    cout << "4) Сложный.\n";
+                    cout << "5) Эксперт.\n";
+                    cin >> HardLevel;
+                    system("cls");
                 }
                         
                 break;
@@ -82,6 +99,15 @@ int main(){
                     cout << "Начальное слово: " << FirstStageWord + "/n" << endl;
                     for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
+
+                    cout << "\nВведите уровень сложности:\n";
+                    cout << "1) Самый легкий. Выделяется больше всего времени.\n";
+                    cout << "2) Простой.\n";
+                    cout << "3) Средний.\n";
+                    cout << "4) Сложный.\n";
+                    cout << "5) Эксперт.\n";
+                    cin >> HardLevel;
+                    system("cls");
                 }
                         
                 break;
@@ -105,6 +131,15 @@ int main(){
                     cout << "Начальное слово: " << FirstStageWord + "/n" << endl;
                     for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
+
+                    cout << "\nВведите уровень сложности:\n";
+                    cout << "1) Самый легкий. Выделяется больше всего времени.\n";
+                    cout << "2) Простой.\n";
+                    cout << "3) Средний.\n";
+                    cout << "4) Сложный.\n";
+                    cout << "5) Эксперт.\n";
+                    cin >> HardLevel;
+                    system("cls");
                 }
                         
                 break;
@@ -128,6 +163,15 @@ int main(){
                     cout << "Начальное слово: " << FirstStageWord + "/n" << endl;
                     for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
+
+                    cout << "\nВведите уровень сложности:\n";
+                    cout << "1) Самый легкий. Выделяется больше всего времени.\n";
+                    cout << "2) Простой.\n";
+                    cout << "3) Средний.\n";
+                    cout << "4) Сложный.\n";
+                    cout << "5) Эксперт.\n";
+                    cin >> HardLevel;
+                    system("cls");
                 }
                     
                 break;
@@ -157,6 +201,15 @@ int main(){
                         cout << endl;
                         for (int i = 0;i < 32; Processed_Words[i++] = "");
                         CorrectInputs = 0;
+
+                        cout << "\nВведите уровень сложности:\n";
+                        cout << "1) Самый легкий. Выделяется больше всего времени.\n";
+                        cout << "2) Простой.\n";
+                        cout << "3) Средний.\n";
+                        cout << "4) Сложный.\n";
+                        cout << "5) Эксперт.\n";
+                        cin >> HardLevel;
+                        system("cls");
                     }
                 }
                 // Error
@@ -167,6 +220,15 @@ int main(){
                     cout << endl;
                     for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
+
+                    cout << "\nВведите уровень сложности:\n";
+                    cout << "1) Самый легкий. Выделяется больше всего времени.\n";
+                    cout << "2) Простой.\n";
+                    cout << "3) Средний.\n";
+                    cout << "4) Сложный.\n";
+                    cout << "5) Эксперт.\n";
+                    cin >> HardLevel;
+                    system("cls");
                 }
                 
                 break;
@@ -196,6 +258,15 @@ int main(){
                         cout << endl;
                         for (int i = 0;i < 32; Processed_Words[i++] = "");
                         CorrectInputs = 0;
+
+                        cout << "\nВведите уровень сложности:\n";
+                        cout << "1) Самый легкий. Выделяется больше всего времени.\n";
+                        cout << "2) Простой.\n";
+                        cout << "3) Средний.\n";
+                        cout << "4) Сложный.\n";
+                        cout << "5) Эксперт.\n";
+                        cin >> HardLevel;
+                        system("cls");
                     }
                 }
                 // Error
@@ -206,6 +277,15 @@ int main(){
                     cout << endl;
                     for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
+
+                    cout << "\nВведите уровень сложности:\n";
+                    cout << "1) Самый легкий. Выделяется больше всего времени.\n";
+                    cout << "2) Простой.\n";
+                    cout << "3) Средний.\n";
+                    cout << "4) Сложный.\n";
+                    cout << "5) Эксперт.\n";
+                    cin >> HardLevel;
+                    system("cls");
                 }
                 
                 break;
@@ -235,6 +315,15 @@ int main(){
                         cout << endl;
                         for (int i = 0;i < 32; Processed_Words[i++] = "");
                         CorrectInputs = 0;
+
+                        cout << "\nВведите уровень сложности:\n";
+                        cout << "1) Самый легкий. Выделяется больше всего времени.\n";
+                        cout << "2) Простой.\n";
+                        cout << "3) Средний.\n";
+                        cout << "4) Сложный.\n";
+                        cout << "5) Эксперт.\n";
+                        cin >> HardLevel;
+                        system("cls");
                     }
                 }
                 // Error
@@ -245,6 +334,15 @@ int main(){
                     cout << endl;
                     for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
+
+                    cout << "\nВведите уровень сложности:\n";
+                    cout << "1) Самый легкий. Выделяется больше всего времени.\n";
+                    cout << "2) Простой.\n";
+                    cout << "3) Средний.\n";
+                    cout << "4) Сложный.\n";
+                    cout << "5) Эксперт.\n";
+                    cin >> HardLevel;
+                    system("cls");
                 }
                 
                 break;
@@ -274,6 +372,15 @@ int main(){
                         cout << endl;
                         for (int i = 0;i < 32; Processed_Words[i++] = "");
                         CorrectInputs = 0;
+
+                        cout << "\nВведите уровень сложности:\n";
+                        cout << "1) Самый легкий. Выделяется больше всего времени.\n";
+                        cout << "2) Простой.\n";
+                        cout << "3) Средний.\n";
+                        cout << "4) Сложный.\n";
+                        cout << "5) Эксперт.\n";
+                        cin >> HardLevel;
+                        system("cls");
                     }
                 }
                 // Error
@@ -284,6 +391,15 @@ int main(){
                     cout << endl;
                     for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
+
+                    cout << "\nВведите уровень сложности:\n";
+                    cout << "1) Самый легкий. Выделяется больше всего времени.\n";
+                    cout << "2) Простой.\n";
+                    cout << "3) Средний.\n";
+                    cout << "4) Сложный.\n";
+                    cout << "5) Эксперт.\n";
+                    cin >> HardLevel;
+                    system("cls");
                 }
                 
                 break;
