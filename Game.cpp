@@ -230,7 +230,7 @@ int main(){
                     for (int i = 19; i >= 0; i --){
                         system("cls");
 
-                        cout << "1 ЭТАП 1 СТАДИЯ. Правильно введено: " << CorrectInputs % 3 << endl;
+                        cout << "4 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
                         cout << "Ваша последовательность: " << InputData << endl;
                         cout << "Сгенерированная последовательность: ";
                         for (string word: SecondStageWords) cout << word << " ";
@@ -273,7 +273,7 @@ int main(){
             system("cls");
             //блокировка ввода символов пока консоль не обновлена
             while(_kbhit()){_getch();}
-            
+
             cout << "5 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
             cout << "\nВаша последовательность: ";
             getline(cin, InputData);
@@ -285,7 +285,7 @@ int main(){
                     for (int i = 19; i >= 0; i --){
                         system("cls");
 
-                        cout << "1 ЭТАП 1 СТАДИЯ. Правильно введено: " << CorrectInputs % 3 << endl;
+                        cout << "5 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
                         cout << "Ваша последовательность: " << InputData << endl;
                         cout << "Сгенерированная последовательность: ";
                         for (string word: SecondStageWords) cout << word << " ";
