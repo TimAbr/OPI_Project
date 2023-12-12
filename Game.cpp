@@ -55,9 +55,9 @@ int main(){
                     CorrectInputs ++;
                 }
                 else {
-                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl;
-                    cout << "Íà÷àëüíîå ñëîâî: " << FirstStageWord << endl;
-
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
+                    cout << "Íà÷àëüíîå ñëîâî: " << FirstStageWord + "/n" << endl;
+                    for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
                 }
                         
@@ -78,7 +78,9 @@ int main(){
                     CorrectInputs ++;
                 }
                 else {
-                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl;
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
+                    cout << "Íà÷àëüíîå ñëîâî: " << FirstStageWord + "/n" << endl;
+                    for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
                 }
                         
@@ -99,7 +101,9 @@ int main(){
                     CorrectInputs ++;
                 }
                 else {
-                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl;
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
+                    cout << "Íà÷àëüíîå ñëîâî: " << FirstStageWord + "/n" << endl;
+                    for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
                 }
                         
@@ -120,7 +124,9 @@ int main(){
                     CorrectInputs ++;
                 }
                 else {
-                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl;
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
+                    cout << "Íà÷àëüíîå ñëîâî: " << FirstStageWord + "/n" << endl;
+                    for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
                 }
                     
@@ -144,14 +150,22 @@ int main(){
                         cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
                         CorrectInputs++;
                     }
-                    else{
-                        cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
+                    else {
+                        cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
+                        cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                        for (string word: SecondStageWords) cout << word << " ";
+                        cout << endl;
+                        for (int i = 0;i < 32; Processed_Words[i++] = "");
                         CorrectInputs = 0;
                     }
                 }
                 // Error
-                else{
-                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
+                else {
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
+                    cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                    for (string word: SecondStageWords) cout << word << " ";
+                    cout << endl;
+                    for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
                 }
                 
@@ -175,14 +189,22 @@ int main(){
                         cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
                         CorrectInputs++;
                     }
-                    else{
-                        cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
+                    else {
+                        cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
+                        cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                        for (string word: SecondStageWords) cout << word << " ";
+                        cout << endl;
+                        for (int i = 0;i < 32; Processed_Words[i++] = "");
                         CorrectInputs = 0;
                     }
                 }
                 // Error
-                else{
-                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
+                else {
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
+                    cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                    for (string word: SecondStageWords) cout << word << " ";
+                    cout << endl;
+                    for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
                 }
                 
@@ -206,14 +228,22 @@ int main(){
                         cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
                         CorrectInputs++;
                     }
-                    else{
-                        cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
+                    else {
+                        cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
+                        cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                        for (string word: SecondStageWords) cout << word << " ";
+                        cout << endl;
+                        for (int i = 0;i < 32; Processed_Words[i++] = "");
                         CorrectInputs = 0;
                     }
                 }
                 // Error
-                else{
-                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
+                else {
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
+                    cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                    for (string word: SecondStageWords) cout << word << " ";
+                    cout << endl;
+                    for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
                 }
                 
@@ -237,14 +267,22 @@ int main(){
                         cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
                         CorrectInputs++;
                     }
-                    else{
-                        cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
+                    else {
+                        cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
+                        cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                        for (string word: SecondStageWords) cout << word << " ";
+                        cout << endl;
+                        for (int i = 0;i < 32; Processed_Words[i++] = "");
                         CorrectInputs = 0;
                     }
                 }
                 // Error
-                else{
-                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ." << endl << endl;
+                else {
+                    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
+                    cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                    for (string word: SecondStageWords) cout << word << " ";
+                    cout << endl;
+                    for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
                 }
                 
@@ -364,5 +402,4 @@ bool InputCheckFifthStep(vector<string> UsersWords, string GenWords[TotalWordsCo
     }
     return true;
 }
-
 
