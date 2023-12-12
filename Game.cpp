@@ -25,10 +25,13 @@ bool InputCheckThirdStep(vector<string>, string[TotalWordsCount]);
 bool InputCheckForthStep(vector<string>, string[TotalWordsCount]);
 bool InputCheckFifthStep(vector<string>, string[TotalWordsCount]);
 
+void UpperCase(string&);
+
 int main(){
     int CorrectInputs{0};
     int TimeMemory[5][2] {{7000, 15000}, {5000, 10000}, {3000, 7000}, {1500, 5000}, {1000, 3000}};
     int HardLevel{2};
+    string LoadLine{"--------------------"};
     string FirstStageWord{};
     string SecondStageWords[TotalWordsCount]{};
     string InputData{};// Users input 
@@ -44,8 +47,9 @@ int main(){
     cout << "3) Ñðåäíèé.\n";
     cout << "4) Ñëîæíûé.\n";
     cout << "5) Ýêñïåðò.\n";
-    cin >> HardLevel;
-
+    getline(cin, InputData);
+    HardLevel = stoi(InputData) - 1;
+    system("cls");
     while (true){   
         switch ((int)(CorrectInputs / 3)){
             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 5 ï¿½ï¿½ï¿½ï¿½
@@ -57,14 +61,24 @@ int main(){
                 system("cls");
                 cout << "1 ÝÒÀÏ 1 ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
                 cout << "Âàøå ñëîâî: ";
-                getline(cin, InputData);
+                getline(cin,InputData);
                 if (Reverse(InputData) == FirstStageWord){ 
-                    cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
-                    CorrectInputs ++;
+                    // Ñîîáùåíèå î êîððåêòíîì ââîäå
+                    for (int i = 19; i >= 0; i --){
+                        system("cls");
+                        cout << "1 ÝÒÀÏ 1 ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
+                        cout << "Âàøå ñëîâî: " << InputData << endl;
+                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                        cout << LoadLine.substr(0,i);
+                        Sleep(300);
+                    }
+                    system("cls");
+
+                    CorrectInputs++;
                 }
                 else {
                     cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-                    cout << "Íà÷àëüíîå ñëîâî: " << FirstStageWord + "/n" << endl;
+                    cout << "Íà÷àëüíîå ñëîâî: " << FirstStageWord + "\n" << endl;
                     for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
 
@@ -75,6 +89,7 @@ int main(){
                     cout << "4) Ñëîæíûé.\n";
                     cout << "5) Ýêñïåðò.\n";
                     cin >> HardLevel;
+                    HardLevel--; 
                     system("cls");
                 }
                         
@@ -91,12 +106,22 @@ int main(){
                 cout << "Âàøå ñëîâî: ";
                 getline(cin, InputData);
                 if (Reverse(InputData) == FirstStageWord){ 
-                    cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
-                    CorrectInputs ++;
+                    // Ñîîáùåíèå î êîððåêòíîì ââîäå
+                    for (int i = 19; i >= 0; i --){
+                        system("cls");
+                        cout << "1 ÝÒÀÏ 1 ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
+                        cout << "Âàøå ñëîâî: " << InputData << endl;
+                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                        cout << LoadLine.substr(0,i);
+                        Sleep(300);
+                    }
+                    system("cls");
+
+                    CorrectInputs++;
                 }
                 else {
                     cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-                    cout << "Íà÷àëüíîå ñëîâî: " << FirstStageWord + "/n" << endl;
+                    cout << "Íà÷àëüíîå ñëîâî: " << FirstStageWord + "\n" << endl;
                     for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
 
@@ -106,7 +131,8 @@ int main(){
                     cout << "3) Ñðåäíèé.\n";
                     cout << "4) Ñëîæíûé.\n";
                     cout << "5) Ýêñïåðò.\n";
-                    cin >> HardLevel;
+                    getline(cin, InputData);
+                    HardLevel = stoi(InputData) - 1;
                     system("cls");
                 }
                         
@@ -123,12 +149,22 @@ int main(){
                 cout << "Âàøå ñëîâî: ";
                 getline(cin, InputData);
                 if (Reverse(InputData) == FirstStageWord){ 
-                    cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
-                    CorrectInputs ++;
+                    // Ñîîáùåíèå î êîððåêòíîì ââîäå
+                    for (int i = 19; i >= 0; i --){
+                        system("cls");
+                        cout << "1 ÝÒÀÏ 1 ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
+                        cout << "Âàøå ñëîâî: " << InputData << endl;
+                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                        cout << LoadLine.substr(0,i);
+                        Sleep(300);
+                    }
+                    system("cls");
+
+                    CorrectInputs++;
                 }
                 else {
                     cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-                    cout << "Íà÷àëüíîå ñëîâî: " << FirstStageWord + "/n" << endl;
+                    cout << "Íà÷àëüíîå ñëîâî: " << FirstStageWord + "\n" << endl;
                     for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
 
@@ -138,7 +174,8 @@ int main(){
                     cout << "3) Ñðåäíèé.\n";
                     cout << "4) Ñëîæíûé.\n";
                     cout << "5) Ýêñïåðò.\n";
-                    cin >> HardLevel;
+                    getline(cin, InputData);
+                    HardLevel = stoi(InputData) - 1;
                     system("cls");
                 }
                         
@@ -155,12 +192,22 @@ int main(){
                 cout << "Âàøå ñëîâî: ";
                 getline(cin, InputData);
                 if (Reverse(InputData) == FirstStageWord){ 
-                    cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
-                    CorrectInputs ++;
+                    // Ñîîáùåíèå î êîððåêòíîì ââîäå
+                    for (int i = 19; i >= 0; i --){
+                        system("cls");
+                        cout << "1 ÝÒÀÏ 1 ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
+                        cout << "Âàøå ñëîâî: " << InputData << endl;
+                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                        cout << LoadLine.substr(0,i);
+                        Sleep(300);
+                    }
+                    system("cls");
+
+                    CorrectInputs++;
                 }
                 else {
                     cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-                    cout << "Íà÷àëüíîå ñëîâî: " << FirstStageWord + "/n" << endl;
+                    cout << "Íà÷àëüíîå ñëîâî: " << FirstStageWord + "\n" << endl;
                     for (int i = 0;i < 32; Processed_Words[i++] = "");
                     CorrectInputs = 0;
 
@@ -170,8 +217,9 @@ int main(){
                     cout << "3) Ñðåäíèé.\n";
                     cout << "4) Ñëîæíûé.\n";
                     cout << "5) Ýêñïåðò.\n";
-                    cin >> HardLevel;
-                    system("cls");
+                    getline(cin, InputData);
+                    HardLevel = stoi(InputData) - 1;
+                    HardLevel--; 
                 }
                     
                 break;
@@ -191,7 +239,17 @@ int main(){
                 UsersWordsList = Split(InputData);
                 if (size(UsersWordsList) == TotalWordsCount){
                     if (InputCheckSecondStep(UsersWordsList, SecondStageWords)){
-                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                        // Ñîîáùåíèå î êîððåêòíîì ââîäå
+                        for (int i = 19; i >= 0; i --){
+                            system("cls");
+                            cout << "1 ÝÒÀÏ 1 ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
+                            cout << "Âàøå ñëîâî: " << InputData << endl;
+                            cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                            cout << LoadLine.substr(0,i);
+                            Sleep(300);
+                        }
+                        system("cls");
+
                         CorrectInputs++;
                     }
                     else {
@@ -208,7 +266,8 @@ int main(){
                         cout << "3) Ñðåäíèé.\n";
                         cout << "4) Ñëîæíûé.\n";
                         cout << "5) Ýêñïåðò.\n";
-                        cin >> HardLevel;
+                        getline(cin, InputData);
+                        HardLevel = stoi(InputData) - 1;
                         system("cls");
                     }
                 }
@@ -227,7 +286,8 @@ int main(){
                     cout << "3) Ñðåäíèé.\n";
                     cout << "4) Ñëîæíûé.\n";
                     cout << "5) Ýêñïåðò.\n";
-                    cin >> HardLevel;
+                    getline(cin, InputData);
+                    HardLevel = stoi(InputData) - 1;
                     system("cls");
                 }
                 
@@ -248,7 +308,17 @@ int main(){
                 UsersWordsList = Split(InputData);
                 if (size(UsersWordsList) == TotalWordsCount){
                     if (InputCheckThirdStep(UsersWordsList, SecondStageWords)){
-                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                        // Ñîîáùåíèå î êîððåêòíîì ââîäå
+                        for (int i = 19; i >= 0; i --){
+                            system("cls");
+                            cout << "1 ÝÒÀÏ 1 ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
+                            cout << "Âàøå ñëîâî: " << InputData << endl;
+                            cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                            cout << LoadLine.substr(0,i);
+                            Sleep(300);
+                        }
+                        system("cls");
+
                         CorrectInputs++;
                     }
                     else {
@@ -265,7 +335,8 @@ int main(){
                         cout << "3) Ñðåäíèé.\n";
                         cout << "4) Ñëîæíûé.\n";
                         cout << "5) Ýêñïåðò.\n";
-                        cin >> HardLevel;
+                        getline(cin, InputData);
+                        HardLevel = stoi(InputData) - 1;
                         system("cls");
                     }
                 }
@@ -284,7 +355,8 @@ int main(){
                     cout << "3) Ñðåäíèé.\n";
                     cout << "4) Ñëîæíûé.\n";
                     cout << "5) Ýêñïåðò.\n";
-                    cin >> HardLevel;
+                    getline(cin, InputData);
+                    HardLevel = stoi(InputData) - 1;
                     system("cls");
                 }
                 
@@ -305,7 +377,17 @@ int main(){
                 UsersWordsList = Split(InputData);
                 if (size(UsersWordsList) == TotalWordsCount){
                     if (InputCheckForthStep(UsersWordsList, SecondStageWords)){
-                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                        // Ñîîáùåíèå î êîððåêòíîì ââîäå
+                        for (int i = 19; i >= 0; i --){
+                            system("cls");
+                            cout << "1 ÝÒÀÏ 1 ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
+                            cout << "Âàøå ñëîâî: " << InputData << endl;
+                            cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                            cout << LoadLine.substr(0,i);
+                            Sleep(300);
+                        }
+                        system("cls");
+
                         CorrectInputs++;
                     }
                     else {
@@ -322,7 +404,8 @@ int main(){
                         cout << "3) Ñðåäíèé.\n";
                         cout << "4) Ñëîæíûé.\n";
                         cout << "5) Ýêñïåðò.\n";
-                        cin >> HardLevel;
+                        getline(cin, InputData);
+                        HardLevel = stoi(InputData) - 1;
                         system("cls");
                     }
                 }
@@ -341,7 +424,8 @@ int main(){
                     cout << "3) Ñðåäíèé.\n";
                     cout << "4) Ñëîæíûé.\n";
                     cout << "5) Ýêñïåðò.\n";
-                    cin >> HardLevel;
+                    getline(cin, InputData);
+                    HardLevel = stoi(InputData) - 1;
                     system("cls");
                 }
                 
@@ -362,8 +446,18 @@ int main(){
                 UsersWordsList = Split(InputData);
                 if (size(UsersWordsList) == TotalWordsCount){
                     if (InputCheckFifthStep(UsersWordsList, SecondStageWords)){
-                        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
-                        CorrectInputs++;
+                        // Ñîîáùåíèå î êîððåêòíîì ââîäå
+                        for (int i = 19; i >= 0; i --){
+                            system("cls");
+                            cout << "1 ÝÒÀÏ 1 ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " << CorrectInputs % 3 << endl;
+                            cout << "Âàøå ñëîâî: " << InputData << endl;
+                            cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+                            cout << LoadLine.substr(0,i);
+                            Sleep(300);
+                        }
+                        system("cls");
+
+                        CorrectInputs ++;
                     }
                     else {
                         cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
@@ -379,7 +473,8 @@ int main(){
                         cout << "3) Ñðåäíèé.\n";
                         cout << "4) Ñëîæíûé.\n";
                         cout << "5) Ýêñïåðò.\n";
-                        cin >> HardLevel;
+                        getline(cin, InputData);
+                        HardLevel = stoi(InputData) - 1;
                         system("cls");
                     }
                 }
@@ -398,7 +493,8 @@ int main(){
                     cout << "3) Ñðåäíèé.\n";
                     cout << "4) Ñëîæíûé.\n";
                     cout << "5) Ýêñïåðò.\n";
-                    cin >> HardLevel;
+                    getline(cin, InputData);
+                    HardLevel = stoi(InputData) - 1;
                     system("cls");
                 }
                 
