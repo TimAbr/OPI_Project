@@ -8,7 +8,9 @@
 using namespace std;
 
 const int TotalWordsCount = 5;
-string Processed_Words[32]{}, EmptyArr[32]{};
+const int TotalGenWords = 32;
+
+string Processed_Words[TotalGenWords]{};
 int Num_Word{0};
 
 int GetRandomNumber(int min,int max){
@@ -25,6 +27,7 @@ bool InputCheckThirdStep(vector<string>, string[TotalWordsCount]);
 bool InputCheckForthStep(vector<string>, string[TotalWordsCount]);
 bool InputCheckFifthStep(vector<string>, string[TotalWordsCount]);
 
+void CleanArr(string[]);
 void UpperCase(string&);
 
 int main(){
@@ -42,17 +45,19 @@ int main(){
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     
-    cout << "Введите уровень сложности:\n";
-    cout << "1) Самый легкий. Выделяется больше всего времени.\n";
-    cout << "2) Простой.\n";
-    cout << "3) Средний.\n";
-    cout << "4) Сложный.\n";
-    cout << "5) Эксперт.\n";
-    getline(cin, InputData);
-    HardLevel = stoi(InputData) - 1;
-    system("cls");
     while (CorrectInputs < 24){   
-        
+        CleanArr(Processed_Words);
+        CorrectInputs = 0;
+        cout << "Введите уровень сложности:\n";
+        cout << "1) Самый легкий. Выделяется больше всего времени.\n";
+        cout << "2) Простой.\n";
+        cout << "3) Средний.\n";
+        cout << "4) Сложный.\n";
+        cout << "5) Эксперт.\n";
+        getline(cin, InputData);
+        HardLevel = stoi(InputData) - 1;
+        system("cls");
+
         // ПЕРВЫЙ ЭТАП
         while (CorrectInputs < 12){
             FirstStageWord = Return_Word(5 + CorrectInputs / 3);
@@ -83,18 +88,6 @@ int main(){
             else {
                 cout << "ВАМИ БЫЛА ДОПУЩЕНА ОШИБКА!" << endl;
                 cout << "Начальное слово: " << FirstStageWord + "\n" << endl;
-                for (int i = 0;i < 32; Processed_Words[i++] = "");
-                CorrectInputs = 0;
-
-                cout << "\nВведите уровень сложности:\n";
-                cout << "1) Самый легкий. Выделяется больше всего времени.\n";
-                cout << "2) Простой.\n";
-                cout << "3) Средний.\n";
-                cout << "4) Сложный.\n";
-                cout << "5) Эксперт.\n";
-                cin >> HardLevel;
-                HardLevel--; 
-                system("cls");
             }
         }
 
@@ -132,18 +125,6 @@ int main(){
                     cout << "Сгенерированная последовательность: ";
                     for (string word: SecondStageWords) cout << word << " ";
                     cout << endl;
-                    for (int i = 0;i < 32; Processed_Words[i++] = "");
-                    CorrectInputs = 0;
-
-                    cout << "\nВведите уровень сложности:\n";
-                    cout << "1) Самый легкий. Выделяется больше всего времени.\n";
-                    cout << "2) Простой.\n";
-                    cout << "3) Средний.\n";
-                    cout << "4) Сложный.\n";
-                    cout << "5) Эксперт.\n";
-                    getline(cin, InputData);
-                    HardLevel = stoi(InputData) - 1;
-                    system("cls");
                 }
             }
             // Error
@@ -152,18 +133,6 @@ int main(){
                 cout << "Сгенерированная последовательность: ";
                 for (string word: SecondStageWords) cout << word << " ";
                 cout << endl;
-                for (int i = 0;i < 32; Processed_Words[i++] = "");
-                CorrectInputs = 0;
-
-                cout << "\nВведите уровень сложности:\n";
-                cout << "1) Самый легкий. Выделяется больше всего времени.\n";
-                cout << "2) Простой.\n";
-                cout << "3) Средний.\n";
-                cout << "4) Сложный.\n";
-                cout << "5) Эксперт.\n";
-                getline(cin, InputData);
-                HardLevel = stoi(InputData) - 1;
-                system("cls");
             }
         }
 
@@ -200,18 +169,6 @@ int main(){
                     cout << "Сгенерированная последовательность: ";
                     for (string word: SecondStageWords) cout << word << " ";
                     cout << endl;
-                    for (int i = 0;i < 32; Processed_Words[i++] = "");
-                    CorrectInputs = 0;
-
-                    cout << "\nВведите уровень сложности:\n";
-                    cout << "1) Самый легкий. Выделяется больше всего времени.\n";
-                    cout << "2) Простой.\n";
-                    cout << "3) Средний.\n";
-                    cout << "4) Сложный.\n";
-                    cout << "5) Эксперт.\n";
-                    getline(cin, InputData);
-                    HardLevel = stoi(InputData) - 1;
-                    system("cls");
                 }
             }
             // Error
@@ -220,20 +177,7 @@ int main(){
                 cout << "Сгенерированная последовательность: ";
                 for (string word: SecondStageWords) cout << word << " ";
                 cout << endl;
-                for (int i = 0;i < 32; Processed_Words[i++] = "");
-                CorrectInputs = 0;
-
-                cout << "\nВведите уровень сложности:\n";
-                cout << "1) Самый легкий. Выделяется больше всего времени.\n";
-                cout << "2) Простой.\n";
-                cout << "3) Средний.\n";
-                cout << "4) Сложный.\n";
-                cout << "5) Эксперт.\n";
-                getline(cin, InputData);
-                HardLevel = stoi(InputData) - 1;
-                system("cls");
-            }
-                        
+            }           
         }
 
         // ЧЕТВЕРТЫЙ ЭТАП
@@ -269,18 +213,6 @@ int main(){
                     cout << "Сгенерированная последовательность: ";
                     for (string word: SecondStageWords) cout << word << " ";
                     cout << endl;
-                    for (int i = 0;i < 32; Processed_Words[i++] = "");
-                    CorrectInputs = 0;
-
-                    cout << "\nВведите уровень сложности:\n";
-                    cout << "1) Самый легкий. Выделяется больше всего времени.\n";
-                    cout << "2) Простой.\n";
-                    cout << "3) Средний.\n";
-                    cout << "4) Сложный.\n";
-                    cout << "5) Эксперт.\n";
-                    getline(cin, InputData);
-                    HardLevel = stoi(InputData) - 1;
-                    system("cls");
                 }
             }
             // Error
@@ -289,20 +221,7 @@ int main(){
                 cout << "Сгенерированная последовательность: ";
                 for (string word: SecondStageWords) cout << word << " ";
                 cout << endl;
-                for (int i = 0;i < 32; Processed_Words[i++] = "");
-                CorrectInputs = 0;
-
-                cout << "\nВведите уровень сложности:\n";
-                cout << "1) Самый легкий. Выделяется больше всего времени.\n";
-                cout << "2) Простой.\n";
-                cout << "3) Средний.\n";
-                cout << "4) Сложный.\n";
-                cout << "5) Эксперт.\n";
-                getline(cin, InputData);
-                HardLevel = stoi(InputData) - 1;
-                system("cls");
             }
-                    
         }
 
         // ПЯТЫЙ ЭТАП   
@@ -339,18 +258,6 @@ int main(){
                     cout << "Сгенерированная последовательность: ";
                     for (string word: SecondStageWords) cout << word << " ";
                     cout << endl;
-                    for (int i = 0;i < 32; Processed_Words[i++] = "");
-                    CorrectInputs = 0;
-
-                    cout << "\nВведите уровень сложности:\n";
-                    cout << "1) Самый легкий. Выделяется больше всего времени.\n";
-                    cout << "2) Простой.\n";
-                    cout << "3) Средний.\n";
-                    cout << "4) Сложный.\n";
-                    cout << "5) Эксперт.\n";
-                    getline(cin, InputData);
-                    HardLevel = stoi(InputData) - 1;
-                    system("cls");
                 }
             }
             // Error
@@ -359,18 +266,6 @@ int main(){
                 cout << "Сгенерированная последовательность: ";
                 for (string word: SecondStageWords) cout << word << " ";
                 cout << endl;
-                for (int i = 0;i < 32; Processed_Words[i++] = "");
-                CorrectInputs = 0;
-
-                cout << "\nВведите уровень сложности:\n";
-                cout << "1) Самый легкий. Выделяется больше всего времени.\n";
-                cout << "2) Простой.\n";
-                cout << "3) Средний.\n";
-                cout << "4) Сложный.\n";
-                cout << "5) Эксперт.\n";
-                getline(cin, InputData);
-                HardLevel = stoi(InputData) - 1;
-                system("cls");
             }
         }
     }
@@ -487,3 +382,6 @@ bool InputCheckFifthStep(vector<string> UsersWords, string GenWords[TotalWordsCo
     return true;
 }
 
+void CleanArr(string Arr[]){
+    for (int i = 0;i < TotalGenWords; Arr[i++] = "");
+}
