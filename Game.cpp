@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <string>
 #include <vector>
+#include <conio.h>
 
 using namespace std;
 
@@ -45,7 +46,7 @@ int main(){
     srand(time(NULL));
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    
+
     while (!GameOver){   
         CleanArr(Processed_Words);
         CorrectInputs = 12;
@@ -66,10 +67,12 @@ int main(){
                 << CorrectInputs % 3 << endl;
             cout << "Сгенерированное слово: " << FirstStageWord << endl;
             Sleep(TimeMemory[HardLevel][0]);
+            while(_kbhit()){_getch();}
             system("cls");
             cout << "1 ЭТАП "<< CorrectInputs / 3 + 1 << " СТАДИЯ. Правильно введено: " 
                 << CorrectInputs % 3 << endl;
             cout << "Ваше слово: ";
+
             getline(cin,InputData);
             UpperCase(InputData);
             if (Reverse(InputData) == FirstStageWord){ 
@@ -108,6 +111,8 @@ int main(){
             for (string word: SecondStageWords) cout << word << " ";
             Sleep(TimeMemory[HardLevel][1]);
             system("cls");
+            //блокировка ввода символов пока консоль не обновлена
+            while(_kbhit()){_getch();}
             cout << "2 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
             cout << "\nВаша последовательность: ";
             getline(cin, InputData);
@@ -159,6 +164,8 @@ int main(){
             for (string word: SecondStageWords) cout << word << " ";
             Sleep(TimeMemory[HardLevel][1]);
             system("cls");
+            //блокировка ввода символов пока консоль не обновлена
+            while(_kbhit()){_getch();}
             cout << "3 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
             cout << "\nВаша последовательность: ";
             getline(cin, InputData);
@@ -210,6 +217,8 @@ int main(){
             for (string word: SecondStageWords) cout << word << " ";
             Sleep(TimeMemory[HardLevel][1]);
             system("cls");
+            //блокировка ввода символов пока консоль не обновлена
+            while(_kbhit()){_getch();}
             cout << "4 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
             cout << "\nВаша последовательность: ";
             getline(cin, InputData);
@@ -262,6 +271,9 @@ int main(){
             for (string word: SecondStageWords) cout << word << " ";
             Sleep(TimeMemory[HardLevel][1]);
             system("cls");
+            //блокировка ввода символов пока консоль не обновлена
+            while(_kbhit()){_getch();}
+            
             cout << "5 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
             cout << "\nВаша последовательность: ";
             getline(cin, InputData);
