@@ -48,7 +48,7 @@ int main(){
     
     while (!GameOver){   
         CleanArr(Processed_Words);
-        CorrectInputs = 0;
+        CorrectInputs = 12;
         cout << "Введите номер уровня сложности:\n";
         cout << "1) Самый легкий. Выделяется больше всего времени.\n";
         cout << "2) Простой.\n";
@@ -430,5 +430,10 @@ void CleanArr(string Arr[]){
     for (int i = 0;i < TotalGenWords; Arr[i++] = "");
 }
 void UpperCase(string &Str){
-    for (int i = 0;i < Str.length();Str[i] = ((unsigned char)Str[i] | 32) ^ 32, i++);
+    for (int i = 0;i < Str.length();i++){
+        if ('а' <= Str[i] && Str[i] <= 'я')
+            Str[i] = (unsigned char)Str[i] - 32;
+    }
+
+
 }
