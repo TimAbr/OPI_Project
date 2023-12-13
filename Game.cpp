@@ -80,7 +80,10 @@ int main(){
         // ПЕРВЫЙ ЭТАП
         while (!GameOver && CorrectInputs < 12){
 
-            GeneratedWords[0] = Return_Word(5 + CorrectInputs / 3, 1 + rand()%(100));
+            do{
+                GeneratedWords[0] = Return_Word(5 + CorrectInputs / 3, 1 + rand()%(100));
+            }while (GeneratedWords[0] == "");
+
             cout << "1 ЭТАП "<< CorrectInputs / 3 + 1 << " СТАДИЯ. Правильно введено: " 
                 << CorrectInputs % 3 << endl;
             cout << "Сгенерированное слово: " << GeneratedWords[0] << endl;
@@ -108,11 +111,15 @@ int main(){
         }
         
         (!GameOver) ? Stage++: 0;
-        // ВТОРОЙ ЭТАП
+        // ВТОРОЙ ЭТАПs
         while (!GameOver && CorrectInputs < 15){
             
-            for (int i = 0;i < TotalWordsCount;  i++)
-                GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
+            for (int i = 0;i < TotalWordsCount;  i++){
+                do{
+                    GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
+                }while (GeneratedWords[i] == "");    
+                Processed_Words[Num_Word++] = GeneratedWords[i];
+            }
 
             cout << "2 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
             cout << "Сгенерированная последовательность: ";
@@ -153,8 +160,12 @@ int main(){
         // ТРЕТИЙ ЭТАП
         while (!GameOver && CorrectInputs < 18){
 
-            for (int i = 0;i < TotalWordsCount; i++)
-                GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
+            for (int i = 0;i < TotalWordsCount;  i++){
+                do{
+                    GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
+                }while (GeneratedWords[i] == "");   
+                Processed_Words[Num_Word++] = GeneratedWords[i];
+            }
 
             cout << "3 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
             cout << "Сгенерированная последовательность: ";
@@ -195,8 +206,12 @@ int main(){
         // ЧЕТВЕРТЫЙ ЭТАП
         while (!GameOver && CorrectInputs < 21){
 
-            for (int i = 0;i < TotalWordsCount; i++)
-                GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
+            for (int i = 0;i < TotalWordsCount;  i++){
+                do{
+                    GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
+                }while (GeneratedWords[i] == "");
+                Processed_Words[Num_Word++] = GeneratedWords[i];
+            }
 
             cout << "4 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
             cout << "Сгенерированная последовательность: ";
@@ -237,8 +252,12 @@ int main(){
         // ПЯТЫЙ ЭТАП   
         while (!GameOver && CorrectInputs < 24){
 
-            for (int i = 0;i < TotalWordsCount; i++)
-                GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
+            for (int i = 0;i < TotalWordsCount;  i++){
+                do{
+                    GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
+                }while (GeneratedWords[i] == "");
+                Processed_Words[Num_Word++] = GeneratedWords[i];
+            }
 
             cout << "5 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
             cout << "Сгенерированная последовательность: ";
@@ -314,38 +333,34 @@ string Return_Word(int letters, int Word_Index){
     fstream file;
 
     bool Flag = false;
-    do{
-
-        switch (letters){
-            case 5: 
-                file.open("5_letters.txt");
-                break;
-            case 6: 
-                file.open("6_letters.txt"); 
-                break;
-            case 7: 
-                file.open("7_letters.txt"); 
-                break;
-            case 8: 
-                file.open("8_letters.txt"); 
-                break;
-        }
-
-        
-        if (file.is_open()) {
-            for (int lineno = 1; (lineno <= Word_Index) && getline(file,Word); lineno++);
-            for (int i = 0; !Flag && i<Num_Word; i++)
-                Flag = (Processed_Words[i] == Word);
-        }
-        else{    
-            cout<<"Error. Cannot open file"<<endl;
-        }
-
-        file.close();
-        Sleep(100);
+    
+    switch (letters){
+        case 5: 
+            file.open("5_letters.txt");
+            break;
+        case 6: 
+            file.open("6_letters.txt"); 
+            break;
+        case 7: 
+            file.open("7_letters.txt"); 
+            break;
+        case 8: 
+            file.open("8_letters.txt"); 
+            break;
     }
-    while(Flag);
-    Processed_Words[Num_Word++] = Word;
+        
+    if (file.is_open()) {
+        for (int lineno = 1; (lineno <= Word_Index) && getline(file,Word); lineno++);
+        for (int i = 0; !Flag && i<Num_Word; i++)
+            Flag = (Processed_Words[i] == Word);
+    }
+    else{    
+        cout<<"Error. Cannot open file"<<endl;
+    }
+
+    file.close();
+    if (Flag) return "";
+
     return Word.substr(0, letters);
 }
 
@@ -458,7 +473,7 @@ void CorrInputMess(int Stage, int CorrInputs, string UsersLine, string GenWords[
         system("cls");
     }
 }
-void ErrorMess(int Stage, string GenWords[TotalGenWords]){
+void ErrorMess(int Stage, string GenWords[TotalWordsCount]){
 
     if (Stage == 1){
         cout << "ВАМИ БЫЛА ДОПУЩЕНА ОШИБКА!" << endl;
@@ -468,8 +483,9 @@ void ErrorMess(int Stage, string GenWords[TotalGenWords]){
     else{
         cout << "ВАМИ БЫЛА ДОПУЩЕНА ОШИБКА!" << endl;
         cout << "Сгенерированная последовательность: ";
-        for (int i = 0; i < TotalGenWords; cout << GenWords[i++] << " ");
-        cout << endl;
+        for (int j = 0; j < TotalWordsCount; j++)
+            cout << GenWords[j] << " ";
+        cout << "\n" << endl;
     }
 }
 void MessageAboutChooseHard(){
