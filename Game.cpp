@@ -5,22 +5,19 @@
 #include <string>
 #include <vector>
 #include <conio.h>
+#include <stdlib.h>
 
 using namespace std;
 
 const int TotalWordsCount = 5;
-const int TotalGenWords = 32;
+const int TotalGenWords = 72;
 const string EndMess[2] = {"выход", "новое начало игры"};
 const string LoadLine{"--------------------"};
 
 string Processed_Words[TotalGenWords]{};
 int Num_Word{0};
 
-int GetRandomNumber(int min,int max){
-    return min+rand()%(max-min+1);
-} 
-
-string Return_Word(int);
+string Return_Word(int, int);
 string Reverse(string);
 vector <string> Split(string);
 
@@ -36,6 +33,8 @@ void UpperCase(string&);
 void MessageAboutChooseHard();
 
 int main(){
+    
+    srand(time(NULL));
     int CorrectInputs{0};
     int TimeMemory[5][2] {{7000, 15000}, {5000, 10000}, {3000, 7000}, {1500, 5000}, {1000, 3000}};
     int HardLevel;
@@ -50,7 +49,7 @@ int main(){
     SetConsoleOutputCP(1251);
 
     while (!GameOver){   
-
+        srand(time(NULL));
         CleanArr(Processed_Words);
         CorrectInputs = 0;
         HardLevel = 0;
@@ -81,7 +80,7 @@ int main(){
         // ПЕРВЫЙ ЭТАП
         while (!GameOver && CorrectInputs < 12){
 
-            GeneratedWords[0] = Return_Word(5 + CorrectInputs / 3);
+            GeneratedWords[0] = Return_Word(5 + CorrectInputs / 3, 1 + rand()%(100));
             cout << "1 ЭТАП "<< CorrectInputs / 3 + 1 << " СТАДИЯ. Правильно введено: " 
                 << CorrectInputs % 3 << endl;
             cout << "Сгенерированное слово: " << GeneratedWords[0] << endl;
@@ -112,7 +111,8 @@ int main(){
         // ВТОРОЙ ЭТАП
         while (!GameOver && CorrectInputs < 15){
             
-            for (int i = 0;i < TotalWordsCount; GeneratedWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
+            for (int i = 0;i < TotalWordsCount;  i++)
+                GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
 
             cout << "2 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
             cout << "Сгенерированная последовательность: ";
@@ -153,8 +153,9 @@ int main(){
         // ТРЕТИЙ ЭТАП
         while (!GameOver && CorrectInputs < 18){
 
-            for (int i = 0;i < TotalWordsCount; GeneratedWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
-            
+            for (int i = 0;i < TotalWordsCount; i++)
+                GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
+
             cout << "3 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
             cout << "Сгенерированная последовательность: ";
             for (string word: GeneratedWords) cout << word << " ";
@@ -194,8 +195,9 @@ int main(){
         // ЧЕТВЕРТЫЙ ЭТАП
         while (!GameOver && CorrectInputs < 21){
 
-            for (int i = 0;i < TotalWordsCount; GeneratedWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
-            
+            for (int i = 0;i < TotalWordsCount; i++)
+                GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
+
             cout << "4 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
             cout << "Сгенерированная последовательность: ";
             for (string word: GeneratedWords) cout << word << " ";
@@ -235,8 +237,9 @@ int main(){
         // ПЯТЫЙ ЭТАП   
         while (!GameOver && CorrectInputs < 24){
 
-            for (int i = 0;i < TotalWordsCount; GeneratedWords[i] = Return_Word(GetRandomNumber(5,8)), i++);
-            
+            for (int i = 0;i < TotalWordsCount; i++)
+                GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
+
             cout << "5 ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
             cout << "Сгенерированная последовательность: ";
             for (string word: GeneratedWords) cout << word << " ";
@@ -305,16 +308,13 @@ int main(){
     return 0;
 }
 
-string Return_Word(int letters){
-    srand(time(NULL));
+string Return_Word(int letters, int Word_Index){
 
-    string Word;
+    string Word{};
     fstream file;
 
     bool Flag = false;
     do{
-
-        int Word_Index = GetRandomNumber(1,100);
 
         switch (letters){
             case 5: 
@@ -342,6 +342,7 @@ string Return_Word(int letters){
         }
 
         file.close();
+        Sleep(100);
     }
     while(Flag);
     Processed_Words[Num_Word++] = Word;
