@@ -37,8 +37,8 @@ int main(){
     srand(time(NULL));
     int CorrectInputs{0};
     int TimeMemory[5][2] {{7000, 15000}, {5000, 10000}, {3000, 7000}, {1500, 5000}, {1000, 3000}};
-    int HardLevel;
-    int CorrIntInput;
+    int HardLevel{0};
+    int CorrIntInput{0};
     int Stage{1};
     string GeneratedWords[TotalWordsCount]{};
     string InputData{};// Users input 
