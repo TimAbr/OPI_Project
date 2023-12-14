@@ -11,7 +11,6 @@ using namespace std;
 
 const int TotalWordsCount = 5;
 const int TotalGenWords = 400;
-const string EndMess[2] = {"выход", "новое начало игры"};
 const string LoadLine{"--------------------"};
 
 string Processed_Words[TotalGenWords]{};
@@ -31,7 +30,6 @@ void CorrInputMess(int, int, string, vector <string>);
 void CorrInputMess(int, int, string, string);
 void ErrorMess(int, string);
 void ErrorMess(int, vector <string>);
-void CleanArr(string[]);
 void UpperCase(string&);
 void Prepare();
 
@@ -48,13 +46,14 @@ int main(){
     vector<string> UsersWordsList{}; 
     vector<string> GeneratedWords{};
     bool GameOver{false};
+    bool CorrCheck{false};
 
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
     HardLevel = ComplexLevel();
     CorrectInputs = 0;
-    while (!GameOver){   
+    while (!GameOver && Stage <= 5){   
         
         switch(Stage){
             // --------------------------------------------------------------------------------
@@ -67,24 +66,30 @@ int main(){
                 }while (FirstStageWord == "");
 
                 // message to the user
-                cout << Stage << " ЭТАП "<< CorrectInputs / 3 + 1 << " СТАДИЯ. Правильно введено: " 
-                    << CorrectInputs % 3 << endl;
-                cout << "Сгенерированное слово: " << FirstStageWord << endl;
+                for (int k = 19; k > 0;k --){
+                    cout << Stage << " ЭТАП "<< CorrectInputs / 3 + 1 << " СТАДИЯ. Правильно введено: " 
+                        << CorrectInputs % 3 << endl;
+                    cout << "Сгенерированное слово: " << FirstStageWord << endl;
+                    cout << endl << LoadLine.substr(0,k);
+                    
+                    // pause 
+                    Sleep(TimeMemory[HardLevel][0] / 20);
+                    system("cls");
+                }
 
-                // pause and block to input
-                Sleep(TimeMemory[HardLevel][0]);
-                system("cls");
+                //block to input
                 while (_kbhit()){_getch();}
 
                 // entering users word
-                cout << "1 ЭТАП "<< CorrectInputs / 3 + 1 << " СТАДИЯ. Правильно введено: " 
-                << CorrectInputs % 3 << endl;
+                cout << Stage << " ЭТАП "<< CorrectInputs / 3 + 1 << " СТАДИЯ. Правильно введено: " 
+                    << CorrectInputs % 3 << endl;
                 cout << "Ваше слово: ";
                 getline(cin,InputData);
                 UpperCase(InputData);
 
                 // correctness input checking
-                if (Reverse(InputData) == FirstStageWord){          
+                CorrCheck = Reverse(InputData) == FirstStageWord;
+                if (CorrCheck){          
                     CorrInputMess(Stage, CorrectInputs, InputData, FirstStageWord);
                     CorrectInputs++;
                     if (CorrectInputs == 12){
@@ -102,170 +107,62 @@ int main(){
                 break;
             //---------------------------------------------------------------------------
             case 2:
-                // generation of the sequence
-                GeneratedWords.clear();
-                GeneratedWords.resize(TotalWordsCount + CorrectInputs / 3);
-                for (int i = 0;i < TotalWordsCount + CorrectInputs / 3;  i++){
-                    do{
-                        GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
-                    }while (GeneratedWords[i] == "");    
-                    Processed_Words[Num_Word++] = GeneratedWords[i];
-                }
-
-                // message to the user
-                cout << Stage << " ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
-                cout << "Сгенерированная последовательность: ";
-                for (string word: GeneratedWords) cout << word << " ";
-
-                // pause and block to input
-                Sleep(TimeMemory[HardLevel][1]);
-                system("cls");
-                while(_kbhit()){_getch();}
-
-                //  entering users sequence
-                cout << Stage << " ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
-                cout << "Ваша последовательность: ";
-                getline(cin, InputData);
-                UpperCase(InputData);
-                UsersWordsList = Split(InputData);
-
-                // correctness input checking
-                if (InputCheckSecondStep(UsersWordsList, GeneratedWords)){
-                    CorrInputMess(Stage, CorrectInputs, InputData, GeneratedWords);
-                    CorrectInputs++;
-                    if (CorrectInputs == 12){
-                        Stage++;
-                        Prepare();
-                        CorrectInputs = 0;
-                    }
-                }
-                else {
-                    ErrorMess(Stage, GeneratedWords);
-                    CorrectInputs = 0;
-                    GameOver = true;
-                }
-                break;
-            //-------------------------------------------------------------------------------
             case 3:
-                // generation of the sequence
-                GeneratedWords.clear();
-                GeneratedWords.resize(TotalWordsCount + CorrectInputs / 3);
-                for (int i = 0;i < TotalWordsCount + CorrectInputs / 3;  i++){
-                    do{
-                        GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
-                    }while (GeneratedWords[i] == "");    
-                    Processed_Words[Num_Word++] = GeneratedWords[i];
-                }
-
-                // message to the user
-                cout << Stage << " ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
-                cout << "Сгенерированная последовательность: ";
-                for (string word: GeneratedWords) cout << word << " ";
-
-                // pause and block to input
-                Sleep(TimeMemory[HardLevel][1]);
-                system("cls");
-                while(_kbhit()){_getch();}
-
-                //  entering users sequence
-                cout << Stage << " ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
-                cout << "Ваша последовательность: ";
-                getline(cin, InputData);
-                UpperCase(InputData);
-                UsersWordsList = Split(InputData);
-
-                // correctness input checking
-                if (InputCheckThirdStep(UsersWordsList, GeneratedWords)){
-                    CorrInputMess(Stage, CorrectInputs, InputData, GeneratedWords);
-                    CorrectInputs++;
-                    if (CorrectInputs == 12){
-                        Stage++;
-                        Prepare();
-                        CorrectInputs = 0;
-                    }
-                }
-                else {
-                    ErrorMess(Stage, GeneratedWords);
-                    CorrectInputs = 0;
-                    GameOver = true;
-                }
-                break;
-            //------------------------------------------------------------------------------------------
             case 4:
-                // generation of the sequence
-                GeneratedWords.clear();
-                GeneratedWords.resize(TotalWordsCount + CorrectInputs / 3);
-                for (int i = 0;i < TotalWordsCount + CorrectInputs / 3;  i++){
-                    do{
-                        GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
-                    }while (GeneratedWords[i] == "");    
-                    Processed_Words[Num_Word++] = GeneratedWords[i];
-                }
-
-                // message to the user
-                cout << Stage << " ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
-                cout << "Сгенерированная последовательность: ";
-                for (string word: GeneratedWords) cout << word << " ";
-
-                // pause and block to input
-                Sleep(TimeMemory[HardLevel][1]);
-                system("cls");
-                while(_kbhit()){_getch();}
-
-                //  entering users sequence
-                cout << Stage << " ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
-                cout << "Ваша последовательность: ";
-                getline(cin, InputData);
-                UpperCase(InputData);
-                UsersWordsList = Split(InputData);
-
-                // correctness input checking
-                if (InputCheckForthStep(UsersWordsList, GeneratedWords)){
-                    CorrInputMess(Stage, CorrectInputs, InputData, GeneratedWords);
-                    CorrectInputs++;
-                    if (CorrectInputs == 12){
-                        Stage++;
-                        Prepare();
-                        CorrectInputs = 0;
-                    }
-                }
-                else {
-                    ErrorMess(Stage, GeneratedWords);
-                    CorrectInputs = 0;
-                    GameOver = true;
-                }
-                break;
-            //------------------------------------------------------------------------------------------
             case 5:
+                UsersWordsList.clear();
+                UsersWordsList.resize(TotalWordsCount + CorrectInputs / 3);
                 // generation of the sequence
                 GeneratedWords.clear();
                 GeneratedWords.resize(TotalWordsCount + CorrectInputs / 3);
                 for (int i = 0;i < TotalWordsCount + CorrectInputs / 3;  i++){
                     do{
+                        srand(time(NULL));
                         GeneratedWords[i] = Return_Word(5 + rand()%(4), 1 + rand()%(100));
                     }while (GeneratedWords[i] == "");    
                     Processed_Words[Num_Word++] = GeneratedWords[i];
                 }
 
                 // message to the user
-                cout << Stage << " ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
-                cout << "Сгенерированная последовательность: ";
-                for (string word: GeneratedWords) cout << word << " ";
-
-                // pause and block to input
-                Sleep(TimeMemory[HardLevel][1]);
-                system("cls");
+                for (int k = 19; k > 0;k --){
+                    cout << Stage << " ЭТАП "<< CorrectInputs / 3 + 1 << " СТАДИЯ. Правильно введено: " 
+                        << CorrectInputs % 3 << endl;
+                    cout << "Сгенерированная последовательность: ";
+                    for (string word: GeneratedWords) cout << word << " ";
+                    cout << endl << LoadLine.substr(0,k);
+                    
+                    // pause
+                    Sleep(TimeMemory[HardLevel][1] / 20);
+                    system("cls");
+                }
+                
+                // block to input
                 while(_kbhit()){_getch();}
 
                 //  entering users sequence
-                cout << Stage << " ЭТАП. Правильно введено: " << CorrectInputs % 3 << endl;
+                cout << Stage << " ЭТАП "<< CorrectInputs / 3 + 1 << " СТАДИЯ. Правильно введено: " 
+                    << CorrectInputs % 3 << endl;
                 cout << "Ваша последовательность: ";
                 getline(cin, InputData);
                 UpperCase(InputData);
                 UsersWordsList = Split(InputData);
 
                 // correctness input checking
-                if (InputCheckFifthStep(UsersWordsList, GeneratedWords)){
+                switch (Stage){
+                    case 2: 
+                        CorrCheck = InputCheckSecondStep(UsersWordsList, GeneratedWords);
+                        break;
+                    case 3:
+                        CorrCheck = InputCheckThirdStep(UsersWordsList, GeneratedWords);
+                        break;
+                    case 4:
+                        CorrCheck = InputCheckForthStep(UsersWordsList, GeneratedWords);
+                        break;
+                    case 5:
+                        CorrCheck = InputCheckFifthStep(UsersWordsList, GeneratedWords);
+                        break;
+                }
+                if (CorrCheck){
                     CorrInputMess(Stage, CorrectInputs, InputData, GeneratedWords);
                     CorrectInputs++;
                     if (CorrectInputs == 12){
@@ -280,7 +177,6 @@ int main(){
                     GameOver = true;
                 }
                 break;
-
         }
 
         if (GameOver){
@@ -313,10 +209,13 @@ int main(){
             
             Stage = TempStage;
             if (Stage == -1 && CorrIntInput != 27){ 
-                HardLevel = ComplexLevel();
+                for (int i = 0;i < TotalGenWords; Processed_Words[i++] = "");
                 Stage = 1;
+                HardLevel = ComplexLevel();
             }
-            else if (CorrIntInput != 27) Prepare();
+            else if (CorrIntInput != 27) {
+                Prepare();
+            }
         }
     }
 
@@ -366,8 +265,8 @@ string Return_Word(int letters, int Word_Index){
 
 string Reverse(string Line){
     string Result{};
-    int StartCheck = Line.find_first_not_of(' ');
-    int EndCheck = Line.find_last_not_of(' ');
+    int StartCheck = Line.find_first_not_of("     ");
+    int EndCheck = Line.find_last_not_of("     ");
     for (int i = EndCheck;i >= StartCheck;Result += Line[i--]);
         
     return Result;
@@ -376,21 +275,21 @@ string Reverse(string Line){
 vector <string> Split(string UsersLine){
 
     vector <string> UsersEnteredWords;
-    int StartCheck = UsersLine.find_first_not_of(' ');
+    int StartCheck = UsersLine.find_first_not_of("     ");
     while (StartCheck != -1){
         UsersEnteredWords.push_back(
-            UsersLine.substr(StartCheck,(UsersLine.find_first_of(' ', StartCheck) - StartCheck)));
+            UsersLine.substr(StartCheck,(UsersLine.find_first_of("     ", StartCheck) - StartCheck)));
 
-        StartCheck = UsersLine.find_first_not_of(' ', UsersLine.find_first_of(' ', StartCheck));
+        StartCheck = UsersLine.find_first_not_of("     ", UsersLine.find_first_of("     ", StartCheck));
     }
     return UsersEnteredWords;
 }
 
 bool InputCheckSecondStep(vector<string> UsersWords, vector <string> GenWords){
-    
-    for (int i = 0;i < TotalWordsCount;i++){
+    if (size(UsersWords) != size(GenWords)) return false;
+    for (int i = 0;i < size(GenWords);i++){
         bool flag = false;
-        for (int j = 0;!flag && j < TotalWordsCount;j++){
+        for (int j = 0;!flag && j < size(GenWords);j++){
             if (UsersWords.back() == GenWords[j]){
                 UsersWords.pop_back();
                 flag = true;
@@ -402,17 +301,17 @@ bool InputCheckSecondStep(vector<string> UsersWords, vector <string> GenWords){
     return true;
 }
 bool InputCheckThirdStep(vector<string> UsersWords, vector <string> GenWords){
-    
-    for (int i = 0;i < TotalWordsCount;i++){
+    if (size(UsersWords) != size(GenWords)) return false;
+    for (int i = 0;i < size(GenWords);i++){
         if (UsersWords[i] != GenWords[i]) return false;
     }
     return true;
 }
 bool InputCheckForthStep(vector<string> UsersWords, vector <string> GenWords){
-    
-    for (int i = 0;i < TotalWordsCount;i++){
+    if (size(UsersWords) != size(GenWords)) return false;
+    for (int i = 0;i < size(GenWords);i++){
         bool flag = false;
-        for (int j = 0;!flag && j < TotalWordsCount;j++){
+        for (int j = 0;!flag && j < size(GenWords);j++){
             if (Reverse(UsersWords.back()) == GenWords[j]){
                 UsersWords.pop_back();
                 flag = true;
@@ -424,15 +323,13 @@ bool InputCheckForthStep(vector<string> UsersWords, vector <string> GenWords){
     return true;
 }
 bool InputCheckFifthStep(vector<string> UsersWords, vector <string> GenWords){
-    for (int i = 0;i < TotalWordsCount;i++){
+    if (size(UsersWords) != size(GenWords)) return false;
+    for (int i = 0;i < size(GenWords);i++){
         if (Reverse(UsersWords[i]) != GenWords[i]) return false;
     }
     return true;
 }
 
-void CleanArr(string Arr[]){
-    for (int i = 0;i < TotalGenWords; Arr[i++] = "");
-}
 void UpperCase(string &Str){
     for (int i = 0;i < Str.length();i++){
         if ('а' <= Str[i] && Str[i] <= 'я')
@@ -462,7 +359,8 @@ void CorrInputMess(int Stage, int CorrInputs, string UsersLine, vector <string> 
     for (int i = 19; i >= 0; i --){
         system("cls");
 
-        cout << Stage << " ЭТАП. Правильно введено: " << CorrInputs % 3 << endl;
+        cout << Stage << " ЭТАП "<< CorrInputs / 3 + 1 << " СТАДИЯ. Правильно введено: " 
+            << CorrInputs % 3 << endl;
         cout << "Ваша последовательность: " << UsersLine << endl;
         cout << "Сгенерированная последовательность: ";
         for (string word: GenWords) cout << word << " ";
