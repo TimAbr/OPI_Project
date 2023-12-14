@@ -209,7 +209,8 @@ int main(){
             
             Stage = TempStage;
             if (Stage == -1 && CorrIntInput != 27){ 
-                for (int i = 0;i < TotalGenWords; Processed_Words[i++] = "");
+                for (int i = 0;i < Num_Word; Processed_Words[i++] = "");
+                Num_Word = 0;
                 Stage = 1;
                 HardLevel = ComplexLevel();
             }
