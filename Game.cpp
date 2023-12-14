@@ -393,7 +393,6 @@ int ComplexLevel(){
     cout << "5) Эксперт.\n"; 
     int CorrIntInput = 0;
     int HardLevel = 0;
-    CleanArr(Processed_Words);
     do{
         if (_kbhit()){
 
