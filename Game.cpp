@@ -66,9 +66,9 @@ int main(){
 
                 // message to the user
                 for (int k = 19; k > 0;k --){
-                    cout << Stage << " ÝÒÀÏ "<< CorrectInputs / 3 + 1 << " ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " 
+                    cout << Stage << " Ð­Ð¢ÐÐŸ "<< CorrectInputs / 3 + 1 << " Ð¡Ð¢ÐÐ”Ð˜Ð¯. ÐŸÑ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ð¾: " 
                         << CorrectInputs % 3 << endl;
-                    cout << "Ñãåíåðèðîâàííîå ñëîâî: " << FirstStageWord << endl;
+                    cout << "Ð¡Ð³ÐµÐ½ÐµÑ€Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ ÑÐ»Ð¾Ð²Ð¾: " << FirstStageWord << endl;
                     cout << endl << LoadLine.substr(0,k);
                     
                     // pause 
@@ -80,9 +80,9 @@ int main(){
                 while (_kbhit()){_getch();}
 
                 // entering users word
-                cout << Stage << " ÝÒÀÏ "<< CorrectInputs / 3 + 1 << " ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " 
+                cout << Stage << " Ð­Ð¢ÐÐŸ "<< CorrectInputs / 3 + 1 << " Ð¡Ð¢ÐÐ”Ð˜Ð¯. ÐŸÑ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ð¾: " 
                     << CorrectInputs % 3 << endl;
-                cout << "Âàøå ñëîâî: ";
+                cout << "Ð’Ð°ÑˆÐµ ÑÐ»Ð¾Ð²Ð¾: ";
                 getline(cin,InputData);
                 UpperCase(InputData);
 
@@ -123,9 +123,9 @@ int main(){
 
                 // message to the user
                 for (int k = 19; k > 0;k --){
-                    cout << Stage << " ÝÒÀÏ "<< CorrectInputs / 3 + 1 << " ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " 
+                    cout << Stage << " Ð­Ð¢ÐÐŸ "<< CorrectInputs / 3 + 1 << " Ð¡Ð¢ÐÐ”Ð˜Ð¯. ÐŸÑ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ð¾: " 
                         << CorrectInputs % 3 << endl;
-                    cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+                    cout << "Ð¡Ð³ÐµÐ½ÐµÑ€Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð°Ñ Ð¿Ð¾ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ: ";
                     for (string word: GeneratedWords) cout << word << " ";
                     cout << endl << LoadLine.substr(0,k);
                     
@@ -138,9 +138,9 @@ int main(){
                 while(_kbhit()){_getch();}
 
                 //  entering users sequence
-                cout << Stage << " ÝÒÀÏ "<< CorrectInputs / 3 + 1 << " ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " 
+                cout << Stage << " Ð­Ð¢ÐÐŸ "<< CorrectInputs / 3 + 1 << " Ð¡Ð¢ÐÐ”Ð˜Ð¯. ÐŸÑ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ð¾: " 
                     << CorrectInputs % 3 << endl;
-                cout << "Âàøà ïîñëåäîâàòåëüíîñòü: ";
+                cout << "Ð’Ð°ÑˆÐ° Ð¿Ð¾ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ: ";
                 getline(cin, InputData);
                 UpperCase(InputData);
                 UsersWordsList = Split(InputData);
@@ -178,8 +178,8 @@ int main(){
         }
 
         if (GameOver){
-            cout << "×òîáû ïîëíîñòüþ çàâåðøèòü ðàáîòó ïðîãðàììû íàæìèòå ESC." << endl;
-            cout << "Ââåäèòå 1, åñëè æåëàåòå íà÷àòü çàíîâî íà ýòîì ýòàïå, èëè 0, åñëè æåëàåòå íà÷àòü ñ ñàìîãî íà÷àëà: ";
+            cout << "Ð§Ñ‚Ð¾Ð±Ñ‹ Ð¿Ð¾Ð»Ð½Ð¾ÑÑ‚ÑŒÑŽ Ð·Ð°Ð²ÐµÑ€ÑˆÐ¸Ñ‚ÑŒ Ñ€Ð°Ð±Ð¾Ñ‚Ñƒ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ESC." << endl;
+            cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ 1, ÐµÑÐ»Ð¸ Ð¶ÐµÐ»Ð°ÐµÑ‚Ðµ Ð½Ð°Ñ‡Ð°Ñ‚ÑŒ Ð·Ð°Ð½Ð¾Ð²Ð¾ Ð½Ð° ÑÑ‚Ð¾Ð¼ ÑÑ‚Ð°Ð¿Ðµ, Ð¸Ð»Ð¸ 0, ÐµÑÐ»Ð¸ Ð¶ÐµÐ»Ð°ÐµÑ‚Ðµ Ð½Ð°Ñ‡Ð°Ñ‚ÑŒ Ñ ÑÐ°Ð¼Ð¾Ð³Ð¾ Ð½Ð°Ñ‡Ð°Ð»Ð°: ";
             
             CorrIntInput = 0;
             int TempStage{0};
@@ -196,10 +196,10 @@ int main(){
                         TempStage = ('1' == CorrIntInput) ? Stage: -1;
 
                         system("cls");
-                        cout << "×òîáû ïîëíîñòüþ çàâåðøèòü ðàáîòó ïðîãðàììû íàæìèòå ESC." << endl;
-                        cout << "Ââåäèòå 1, åñëè æåëàåòå íà÷àòü çàíîâî íà ýòîì ýòàïå ñ òåì æå óðîâíåì ñëîæíîñòè,"<< endl 
-                            << "èëè 0, åñëè æåëàåòå íà÷àòü ñ ñàìîãî íà÷àëà: " << CorrIntInput - 48;
-                        cout << "\nÏîääòâåðäèòå âàø âûáîð, íàæàâ êëàâèøó ENTER." << endl;
+                        cout << "Ð§Ñ‚Ð¾Ð±Ñ‹ Ð¿Ð¾Ð»Ð½Ð¾ÑÑ‚ÑŒÑŽ Ð·Ð°Ð²ÐµÑ€ÑˆÐ¸Ñ‚ÑŒ Ñ€Ð°Ð±Ð¾Ñ‚Ñƒ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ESC." << endl;
+                        cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ 1, ÐµÑÐ»Ð¸ Ð¶ÐµÐ»Ð°ÐµÑ‚Ðµ Ð½Ð°Ñ‡Ð°Ñ‚ÑŒ Ð·Ð°Ð½Ð¾Ð²Ð¾ Ð½Ð° ÑÑ‚Ð¾Ð¼ ÑÑ‚Ð°Ð¿Ðµ Ñ Ñ‚ÐµÐ¼ Ð¶Ðµ ÑƒÑ€Ð¾Ð²Ð½ÐµÐ¼ ÑÐ»Ð¾Ð¶Ð½Ð¾ÑÑ‚Ð¸,"<< endl 
+                            << "Ð¸Ð»Ð¸ 0, ÐµÑÐ»Ð¸ Ð¶ÐµÐ»Ð°ÐµÑ‚Ðµ Ð½Ð°Ñ‡Ð°Ñ‚ÑŒ Ñ ÑÐ°Ð¼Ð¾Ð³Ð¾ Ð½Ð°Ñ‡Ð°Ð»Ð°: " << CorrIntInput - 48;
+                        cout << "\nÐŸÐ¾Ð´Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¸Ñ‚Ðµ Ð²Ð°Ñˆ Ð²Ñ‹Ð±Ð¾Ñ€, Ð½Ð°Ð¶Ð°Ð² ÐºÐ»Ð°Ð²Ð¸ÑˆÑƒ ENTER." << endl;
                     }
                 }
             }while(CorrIntInput != 13 || TempStage == 0);
@@ -218,9 +218,9 @@ int main(){
         }
     }
 
-    cout << "ÈÃÐÀ ÎÊÎÍ×ÅÍÀ." << endl;
+    cout << "Ð˜Ð“Ð Ð ÐžÐšÐžÐÐ§Ð•ÐÐ." << endl;
 
-    //÷òîáû êîíñîëü íå çàêðûâàëàñü ñðàçó. Àíàëîã Readln; â äåëôè
+    //Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÐºÐ¾Ð½ÑÐ¾Ð»ÑŒ Ð½Ðµ Ð·Ð°ÐºÑ€Ñ‹Ð²Ð°Ð»Ð°ÑÑŒ ÑÑ€Ð°Ð·Ñƒ. ÐÐ½Ð°Ð»Ð¾Ð³ Readln; Ð² Ð´ÐµÐ»Ñ„Ð¸
     system("pause");
     return 0;
 }
@@ -331,7 +331,7 @@ bool InputCheckFifthStep(vector<string> UsersWords, vector <string> GenWords){
 
 void UpperCase(string &Str){
     for (int i = 0;i < Str.length();i++){
-        if ('à' <= Str[i] && Str[i] <= 'ÿ')
+        if ('Ð°' <= Str[i] && Str[i] <= 'Ñ')
             Str[i] = (unsigned char)Str[i] - 32;
     }
 }
@@ -341,11 +341,11 @@ void CorrInputMess(int Stage, int CorrInputs, string UsersLine, string GenWord){
     for (int i = 19; i >= 0; i --){
         system("cls");
 
-        cout << Stage << " ÝÒÀÏ "<< CorrInputs / 3 + 1 << " ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " 
+        cout << Stage << " Ð­Ð¢ÐÐŸ "<< CorrInputs / 3 + 1 << " Ð¡Ð¢ÐÐ”Ð˜Ð¯. ÐŸÑ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ð¾: " 
             << CorrInputs % 3 << endl;
-        cout << "Âàøå ñëîâî: " << UsersLine << endl;
-        cout << "Ñãåíåðèðîâàííîå ñëîâî: " << GenWord << endl;
-        cout << "ÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+        cout << "Ð’Ð°ÑˆÐµ ÑÐ»Ð¾Ð²Ð¾: " << UsersLine << endl;
+        cout << "Ð¡Ð³ÐµÐ½ÐµÑ€Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ ÑÐ»Ð¾Ð²Ð¾: " << GenWord << endl;
+        cout << "ÐžÐ¢Ð’Ð•Ð¢ Ð’Ð•Ð ÐÐ«Ð™!" << endl;
         cout << LoadLine.substr(0,i);
 
         Sleep(100);
@@ -358,12 +358,12 @@ void CorrInputMess(int Stage, int CorrInputs, string UsersLine, vector <string> 
     for (int i = 19; i >= 0; i --){
         system("cls");
 
-        cout << Stage << " ÝÒÀÏ "<< CorrInputs / 3 + 1 << " ÑÒÀÄÈß. Ïðàâèëüíî ââåäåíî: " 
+        cout << Stage << " Ð­Ð¢ÐÐŸ "<< CorrInputs / 3 + 1 << " Ð¡Ð¢ÐÐ”Ð˜Ð¯. ÐŸÑ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ð¾: " 
             << CorrInputs % 3 << endl;
-        cout << "Âàøà ïîñëåäîâàòåëüíîñòü: " << UsersLine << endl;
-        cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+        cout << "Ð’Ð°ÑˆÐ° Ð¿Ð¾ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ: " << UsersLine << endl;
+        cout << "Ð¡Ð³ÐµÐ½ÐµÑ€Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð°Ñ Ð¿Ð¾ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ: ";
         for (string word: GenWords) cout << word << " ";
-        cout << "\nÎÒÂÅÒ ÂÅÐÍÛÉ!" << endl;
+        cout << "\nÐžÐ¢Ð’Ð•Ð¢ Ð’Ð•Ð ÐÐ«Ð™!" << endl;
         cout << LoadLine.substr(0,i);
 
         Sleep(100);
@@ -372,24 +372,24 @@ void CorrInputMess(int Stage, int CorrInputs, string UsersLine, vector <string> 
 }
 
 void ErrorMess(int Stage, string GenWord){
-    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-    cout << "Íà÷àëüíîå ñëîâî: " << GenWord + "\n" << endl;
+    cout << "Ð’ÐÐœÐ˜ Ð‘Ð«Ð›Ð Ð”ÐžÐŸÐ£Ð©Ð•ÐÐ ÐžÐ¨Ð˜Ð‘ÐšÐ!" << endl;
+    cout << "ÐÐ°Ñ‡Ð°Ð»ÑŒÐ½Ð¾Ðµ ÑÐ»Ð¾Ð²Ð¾: " << GenWord + "\n" << endl;
 }
 void ErrorMess(int Stage, vector <string> GenWords){
-    cout << "ÂÀÌÈ ÁÛËÀ ÄÎÏÓÙÅÍÀ ÎØÈÁÊÀ!" << endl;
-    cout << "Ñãåíåðèðîâàííàÿ ïîñëåäîâàòåëüíîñòü: ";
+    cout << "Ð’ÐÐœÐ˜ Ð‘Ð«Ð›Ð Ð”ÐžÐŸÐ£Ð©Ð•ÐÐ ÐžÐ¨Ð˜Ð‘ÐšÐ!" << endl;
+    cout << "Ð¡Ð³ÐµÐ½ÐµÑ€Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð°Ñ Ð¿Ð¾ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ: ";
     for (string word: GenWords) cout << word << " ";
     cout << "\n" << endl;
 }
 
 int ComplexLevel(){
     system("cls");
-    cout << "Ââåäèòå íîìåð óðîâíÿ ñëîæíîñòè:\n";
-    cout << "1) Ñàìûé ëåãêèé.\n";
-    cout << "2) Ïðîñòîé.\n";
-    cout << "3) Ñðåäíèé.\n";
-    cout << "4) Ñëîæíûé.\n";
-    cout << "5) Ýêñïåðò.\n"; 
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ ÑƒÑ€Ð¾Ð²Ð½Ñ ÑÐ»Ð¾Ð¶Ð½Ð¾ÑÑ‚Ð¸:\n";
+    cout << "1) Ð¡Ð°Ð¼Ñ‹Ð¹ Ð»ÐµÐ³ÐºÐ¸Ð¹.\n";
+    cout << "2) ÐŸÑ€Ð¾ÑÑ‚Ð¾Ð¹.\n";
+    cout << "3) Ð¡Ñ€ÐµÐ´Ð½Ð¸Ð¹.\n";
+    cout << "4) Ð¡Ð»Ð¾Ð¶Ð½Ñ‹Ð¹.\n";
+    cout << "5) Ð­ÐºÑÐ¿ÐµÑ€Ñ‚.\n"; 
     int CorrIntInput = 0;
     int HardLevel = 0;
     do{
@@ -398,19 +398,19 @@ int ComplexLevel(){
             CorrIntInput = _getch();
             if ('1' <= CorrIntInput && CorrIntInput <= '5'){
                 HardLevel = CorrIntInput - 48;system("cls");
-                cout << "Ââåäèòå íîìåð óðîâíÿ ñëîæíîñòè:\n";
-                cout << "1) Ñàìûé ëåãêèé.\n";
-                cout << "2) Ïðîñòîé.\n";
-                cout << "3) Ñðåäíèé.\n";
-                cout << "4) Ñëîæíûé.\n";
-                cout << "5) Ýêñïåðò.\n";
-                cout << "Áûë âûáðàí " << HardLevel << " óðîâåíü ñëîæíîñòè. \nÏîäòâåðäèòå ñâîé âûáîð, íàæàâ ENTER." << endl;
+                cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ ÑƒÑ€Ð¾Ð²Ð½Ñ ÑÐ»Ð¾Ð¶Ð½Ð¾ÑÑ‚Ð¸:\n";
+                cout << "1) Ð¡Ð°Ð¼Ñ‹Ð¹ Ð»ÐµÐ³ÐºÐ¸Ð¹.\n";
+                cout << "2) ÐŸÑ€Ð¾ÑÑ‚Ð¾Ð¹.\n";
+                cout << "3) Ð¡Ñ€ÐµÐ´Ð½Ð¸Ð¹.\n";
+                cout << "4) Ð¡Ð»Ð¾Ð¶Ð½Ñ‹Ð¹.\n";
+                cout << "5) Ð­ÐºÑÐ¿ÐµÑ€Ñ‚.\n";
+                cout << "Ð‘Ñ‹Ð» Ð²Ñ‹Ð±Ñ€Ð°Ð½ " << HardLevel << " ÑƒÑ€Ð¾Ð²ÐµÐ½ÑŒ ÑÐ»Ð¾Ð¶Ð½Ð¾ÑÑ‚Ð¸. \nÐŸÐ¾Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¸Ñ‚Ðµ ÑÐ²Ð¾Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€, Ð½Ð°Ð¶Ð°Ð² ENTER." << endl;
             }
         }
     }while(CorrIntInput != 13 || HardLevel == 0);
     for (int i = 19; i >= 0; i --){
         system("cls");
-        cout << "ÓÐÎÂÅÍÜ ÑËÎÆÍÎÑÒÈ: " << HardLevel << endl << "ÏÐÈÃÎÒÎÂÜÒÅÑÜ!" << endl;
+        cout << "Ð£Ð ÐžÐ’Ð•ÐÐ¬ Ð¡Ð›ÐžÐ–ÐÐžÐ¡Ð¢Ð˜: " << HardLevel << endl << "ÐŸÐ Ð˜Ð“ÐžÐ¢ÐžÐ’Ð¬Ð¢Ð•Ð¡Ð¬!" << endl;
         cout << LoadLine.substr(0,i);
         Sleep(100);
     }
@@ -422,7 +422,7 @@ void Prepare(){
     for (int i = 19; i >= 0; i --){
         system("cls");
         
-        cout << "Áóäüòå ãîòîâû!" << endl;
+        cout << "Ð‘ÑƒÐ´ÑŒÑ‚Ðµ Ð³Ð¾Ñ‚Ð¾Ð²Ñ‹!" << endl;
         cout << LoadLine.substr(0,i);
 
         Sleep(100);
