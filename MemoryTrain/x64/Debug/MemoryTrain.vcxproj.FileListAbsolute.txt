@@ -1,4 +1,0 @@
-D:\ASP.NET\MemoryTrain\x64\Debug\MemoryTrain.vcxproj.AssemblyReference.cache
-D:\ASP.NET\MemoryTrain\x64\Debug\MemoryTrain.exe
-D:\ASP.NET\MemoryTrain\x64\Debug\MemoryTrain.MemoryTrain.resources
-D:\ASP.NET\MemoryTrain\x64\Debug\MemoryTrain.vcxproj.GenerateResource.cache
