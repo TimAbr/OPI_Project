@@ -1,3 +1,7 @@
+D:\ASP.NET\MemoryTrain\x64\Release\MemoryTrain.vcxproj.AssemblyReference.cache
+D:\ASP.NET\MemoryTrain\x64\Release\MemoryTrain.MemoryTrain.resources
+D:\ASP.NET\MemoryTrain\x64\Release\MemoryTrain.vcxproj.GenerateResource.cache
+D:\ASP.NET\MemoryTrain\x64\Release\MemoryTrain.exe
 D:\OPI_last_project\OPI_Project\MemoryTrain\x64\Release\MemoryTrain.vcxproj.AssemblyReference.cache
 D:\OPI_last_project\OPI_Project\MemoryTrain\x64\Release\MemoryTrain.MemoryTrain.resources
 D:\OPI_last_project\OPI_Project\MemoryTrain\x64\Release\MemoryTrain.vcxproj.GenerateResource.cache
