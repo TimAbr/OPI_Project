@@ -9,6 +9,12 @@
 #include <stdlib.h>
 
 using namespace std;
+using namespace System;
+using namespace System::ComponentModel;
+using namespace System::Collections;
+using namespace System::Windows::Forms;
+using namespace System::Data;
+using namespace System::Drawing;
 
 string Return_Word(int, int);
 string Reverse(string);
@@ -19,39 +25,31 @@ bool InputCheckSecondStep(vector<string>, vector <string>);
 bool InputCheckThirdStep(vector<string>, vector <string>);
 bool InputCheckForthStep(vector<string>, vector <string>);
 bool InputCheckFifthStep(vector<string>, vector <string>);
+
 void Creating();
 void OutputGenWord();
+
 namespace MemoryTrain {
 
 	
-
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
-	
-
 	const int TotalWordsCount = 5;
 	const int TotalGenWords = 400;
 	const string LoadLine{ "--------------------" };
 
 	string Processed_Words[TotalGenWords]{};
 	int Num_Word{ 0 };
-
 	int CorrectInputs{ 0 };
+
 	int TimeMemory[5][2]{ {7000, 15000}, {5000, 10000}, {3000, 7000}, {1500, 5000}, {1000, 3000} };
+	
 	string WordsLine;
 	string FirstStageWord{};
+
 	vector<string> UsersWordsList{};
 	vector<string> GeneratedWords{};
-	bool GameOver{ false };
+
 	bool CorrCheck{ false };
 
-	/// <summary>
-	/// Сводка для MemoryTrain
-	/// </summary>
 	vector<string> Cond{ "На экране на некоторое время отображается слово из 5 букв, а затем пропадает. Пользователь вводит с клавиатуры это же слово, но в обратном порядке('перевернутым'). После выводится сообщение о верном\\неверном вводе. Затем появляется новое слово с тем же количеством букв и ожидается новый ввод 'перевернутого' слова. После правильно введенных трех подряд верных 'перевернутых' слов начинают выводиться слова длинее на одну букву и так до тех пор, пока Вы не введете подряд три 'перевернутых' 8 буквенных слова. На этом этап 1 завершается.",
 		"На экране на некоторое время отображается последовательность из 5 различных слов, а затем пропадает. Вам необходимо ввести эти же слова в произвольном порядке. Затем появляется новая последовательность из других 5 слов. После правильно введенных трех подряд последовательностей из 5 слов начинают выводиться послдовательности из 6 слов и так до тех пор, пока Вы не введете подряд три правильных последовательности из 8 слов.", 
 		"На экране на некоторое время отображается последовательность из 5 различных слов, а затем пропадает. Однако в отличие от второго этапа на третьем Вам необходимо ввести эти же слова в том же порядке, в котором они были Вам показаны. Затем появляется новая последовательность из других 5 слов. После правильно введенных трех подряд последовательностей из 5 слов начинают выводиться послдовательности из 6 слов и так до тех пор, пока Вы не введете подряд три правильных последовательности из 8 слов.", 
@@ -109,7 +107,9 @@ namespace MemoryTrain {
 				Flag = (Processed_Words[i] == Word);
 		}
 		else {
-			cout << "Error. Cannot open file" << endl;
+
+			System::Windows::Forms::MessageBox::Show("Файл не открыт!");
+
 		}
 
 		file.close();
@@ -128,7 +128,6 @@ namespace MemoryTrain {
 		Result.resize(EndCheck - StartCheck + 1);
 		return Result;
 	}
-
 	vector <string> Split(string UsersLine) {
 
 		vector <string> UsersEnteredWords;
@@ -194,12 +193,13 @@ namespace MemoryTrain {
 	private: System::Windows::Forms::Label^ PreparingLine;
 	private: System::Windows::Forms::Label^ CheckedLine;
 	private: System::Windows::Forms::Label^ Message;
-	private: System::Windows::Forms::Label^ Buff;
+
 	private: System::Windows::Forms::RadioButton^ HardLevel1;
 	private: System::Windows::Forms::RadioButton^ HardLevel2;
 	private: System::Windows::Forms::RadioButton^ HardLevel3;
 	private: System::Windows::Forms::RadioButton^ HardLevel4;
 	private: System::Windows::Forms::RadioButton^ HardLevel5;
+
 	private: System::Windows::Forms::RadioButton^ Stage1;
 	private: System::Windows::Forms::RadioButton^ Stage2;
 	private: System::Windows::Forms::RadioButton^ Stage3;
@@ -242,56 +242,56 @@ namespace MemoryTrain {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MemoryTrain::typeid));
-			this->StartText = (gcnew System::Windows::Forms::Label());
+			
 			this->Message = (gcnew System::Windows::Forms::Label());
+			this->Header = (gcnew System::Windows::Forms::Label());
+			this->Condition = (gcnew System::Windows::Forms::Label());
+			this->PreparingLine = (gcnew System::Windows::Forms::Label());
+			this->GenLine = (gcnew System::Windows::Forms::Label());
 			this->CheckedLine = (gcnew System::Windows::Forms::Label());
+
 			this->HardLevel1 = (gcnew System::Windows::Forms::RadioButton());
 			this->HardLevel2 = (gcnew System::Windows::Forms::RadioButton());
 			this->HardLevel3 = (gcnew System::Windows::Forms::RadioButton());
 			this->HardLevel4 = (gcnew System::Windows::Forms::RadioButton());
 			this->HardLevel5 = (gcnew System::Windows::Forms::RadioButton());
+
 			this->Stage1 = (gcnew System::Windows::Forms::RadioButton());
 			this->Stage2 = (gcnew System::Windows::Forms::RadioButton());
 			this->Stage3 = (gcnew System::Windows::Forms::RadioButton());
 			this->Stage4 = (gcnew System::Windows::Forms::RadioButton());
 			this->Stage5 = (gcnew System::Windows::Forms::RadioButton());
+
 			this->HardLevelList = (gcnew System::Windows::Forms::GroupBox());
 			this->NumStageList = (gcnew System::Windows::Forms::GroupBox());
+			this->HardLevelList->SuspendLayout();
+			this->NumStageList->SuspendLayout();
+
 			this->Confirm = (gcnew System::Windows::Forms::Button());
 			this->Start = (gcnew System::Windows::Forms::Button());
 			this->Continue = (gcnew System::Windows::Forms::Button());
 			this->Home = (gcnew System::Windows::Forms::Button());
-			this->Buff = (gcnew System::Windows::Forms::Label());
-			this->Header = (gcnew System::Windows::Forms::Label());
-			this->Condition = (gcnew System::Windows::Forms::Label());
-			this->PreparingLine = (gcnew System::Windows::Forms::Label());
-			this->GenLine = (gcnew System::Windows::Forms::Label());
+
 			this->UsersInput = (gcnew System::Windows::Forms::RichTextBox());
-			this->HardLevelList->SuspendLayout();
-			this->NumStageList->SuspendLayout();
+
 			this->SuspendLayout();
 			// 
-			// StartText
+			// Header
 			// 
-			this->StartText->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->StartText->Dock = System::Windows::Forms::DockStyle::Top;
-			this->StartText->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30.25F));
-			this->StartText->ForeColor = System::Drawing::Color::AliceBlue;
-			this->StartText->Location = System::Drawing::Point(0, 0);
-			this->StartText->Name = L"StartText";
-			this->StartText->Size = System::Drawing::Size(700, 100);
-			this->StartText->TabIndex = 1;
-			this->StartText->Text = L"Выберите уровень сложности и желаемый этап";
+			this->Header->BackColor = System::Drawing::Color::FromArgb(40, 40, 40);
+			this->Header->Dock = System::Windows::Forms::DockStyle::Top;
+			this->Header->Font = (gcnew System::Drawing::Font(L"Roboto", 30.25F));
+			this->Header->Size = System::Drawing::Size(700, 100);
+			this->Header->ForeColor = System::Drawing::Color::AliceBlue;
+			this->Header->Name = L"Header";
+			this->Header->TabIndex = 0;
+			this->Header->Text = L"Выберите уровень сложности и желаемый этап";
+			this->Header->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// HardLevel1
 			// 
-			this->HardLevel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(70)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
-				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->HardLevel1->BackColor = System::Drawing::Color::FromArgb(70,70,70);
 			this->HardLevel1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->HardLevel1->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->HardLevel1->FlatAppearance->BorderSize = 3;
-			this->HardLevel1->FlatAppearance->CheckedBackColor = System::Drawing::Color::Black;
 			this->HardLevel1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->HardLevel1->Font = (gcnew System::Drawing::Font(L"Roboto", 10.25F));
 			this->HardLevel1->ForeColor = System::Drawing::Color::Orange;
@@ -306,13 +306,8 @@ namespace MemoryTrain {
 			// 
 			// HardLevel2
 			// 
-			this->HardLevel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(70)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
-				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->HardLevel2->BackColor = System::Drawing::Color::FromArgb(70, 70, 70);
 			this->HardLevel2->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->HardLevel2->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->HardLevel2->FlatAppearance->BorderSize = 3;
-			this->HardLevel2->FlatAppearance->CheckedBackColor = System::Drawing::Color::Black;
 			this->HardLevel2->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->HardLevel2->Font = (gcnew System::Drawing::Font(L"Roboto", 10.25F));
 			this->HardLevel2->ForeColor = System::Drawing::Color::AliceBlue;
@@ -327,12 +322,8 @@ namespace MemoryTrain {
 			// 
 			// HardLevel3
 			// 
-			this->HardLevel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(70)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
-				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->HardLevel3->BackColor = System::Drawing::Color::FromArgb(70, 70, 70);
 			this->HardLevel3->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->HardLevel3->FlatAppearance->BorderColor = System::Drawing::Color::White;
-			this->HardLevel3->FlatAppearance->BorderSize = 3;
-			this->HardLevel3->FlatAppearance->CheckedBackColor = System::Drawing::Color::Black;
 			this->HardLevel3->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->HardLevel3->Font = (gcnew System::Drawing::Font(L"Roboto", 10.25F));
 			this->HardLevel3->ForeColor = System::Drawing::Color::AliceBlue;
@@ -347,12 +338,8 @@ namespace MemoryTrain {
 			// 
 			// HardLevel4
 			// 
-			this->HardLevel4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(70)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
-				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->HardLevel4->BackColor = System::Drawing::Color::FromArgb(70, 70, 70);
 			this->HardLevel4->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->HardLevel4->FlatAppearance->BorderColor = System::Drawing::Color::White;
-			this->HardLevel4->FlatAppearance->BorderSize = 3;
-			this->HardLevel4->FlatAppearance->CheckedBackColor = System::Drawing::Color::Black;
 			this->HardLevel4->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->HardLevel4->Font = (gcnew System::Drawing::Font(L"Roboto", 10.25F));
 			this->HardLevel4->ForeColor = System::Drawing::Color::AliceBlue;
@@ -367,12 +354,8 @@ namespace MemoryTrain {
 			// 
 			// HardLevel5
 			// 
-			this->HardLevel5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(70)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
-				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->HardLevel5->BackColor = System::Drawing::Color::FromArgb(70, 70, 70);
 			this->HardLevel5->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->HardLevel5->FlatAppearance->BorderColor = System::Drawing::Color::White;
-			this->HardLevel5->FlatAppearance->BorderSize = 3;
-			this->HardLevel5->FlatAppearance->CheckedBackColor = System::Drawing::Color::Black;
 			this->HardLevel5->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->HardLevel5->Font = (gcnew System::Drawing::Font(L"Roboto", 10.25F));
 			this->HardLevel5->ForeColor = System::Drawing::Color::AliceBlue;
@@ -387,13 +370,8 @@ namespace MemoryTrain {
 			// 
 			// Stage1
 			// 
-			this->Stage1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(70)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
-				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->Stage1->BackColor = System::Drawing::Color::FromArgb(70,70,70);
 			this->Stage1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->Stage1->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->Stage1->FlatAppearance->BorderSize = 3;
-			this->Stage1->FlatAppearance->CheckedBackColor = System::Drawing::Color::Black;
 			this->Stage1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->Stage1->Font = (gcnew System::Drawing::Font(L"Roboto", 10.25F));
 			this->Stage1->ForeColor = System::Drawing::Color::Orange;
@@ -408,10 +386,8 @@ namespace MemoryTrain {
 			// 
 			// Stage2
 			// 
-			this->Stage2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(70)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
-				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->Stage2->BackColor = System::Drawing::Color::FromArgb(70, 70, 70);
 			this->Stage2->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->Stage2->FlatAppearance->CheckedBackColor = System::Drawing::Color::RosyBrown;
 			this->Stage2->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->Stage2->Font = (gcnew System::Drawing::Font(L"Roboto", 10.25F));
 			this->Stage2->ForeColor = System::Drawing::Color::AliceBlue;
@@ -426,10 +402,8 @@ namespace MemoryTrain {
 			// 
 			// Stage3
 			// 
-			this->Stage3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(70)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
-				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->Stage3->BackColor = System::Drawing::Color::FromArgb(70, 70, 70);
 			this->Stage3->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->Stage3->FlatAppearance->CheckedBackColor = System::Drawing::Color::RosyBrown;
 			this->Stage3->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->Stage3->Font = (gcnew System::Drawing::Font(L"Roboto", 10.25F));
 			this->Stage3->ForeColor = System::Drawing::Color::AliceBlue;
@@ -444,10 +418,8 @@ namespace MemoryTrain {
 			// 
 			// Stage4
 			// 
-			this->Stage4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(70)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
-				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->Stage4->BackColor = System::Drawing::Color::FromArgb(70, 70, 70);
 			this->Stage4->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->Stage4->FlatAppearance->CheckedBackColor = System::Drawing::Color::RosyBrown;
 			this->Stage4->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->Stage4->Font = (gcnew System::Drawing::Font(L"Roboto", 10.25F));
 			this->Stage4->ForeColor = System::Drawing::Color::AliceBlue;
@@ -462,10 +434,8 @@ namespace MemoryTrain {
 			// 
 			// Stage5
 			// 
-			this->Stage5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(70)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
-				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->Stage5->BackColor = System::Drawing::Color::FromArgb(70, 70, 70);
 			this->Stage5->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->Stage5->FlatAppearance->CheckedBackColor = System::Drawing::Color::RosyBrown;
 			this->Stage5->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->Stage5->Font = (gcnew System::Drawing::Font(L"Roboto", 10.25F));
 			this->Stage5->ForeColor = System::Drawing::Color::AliceBlue;
@@ -485,6 +455,7 @@ namespace MemoryTrain {
 			this->HardLevelList->Controls->Add(this->HardLevel3);
 			this->HardLevelList->Controls->Add(this->HardLevel4);
 			this->HardLevelList->Controls->Add(this->HardLevel5);
+
 			this->HardLevelList->Font = (gcnew System::Drawing::Font(L"Roboto", 15.25F));
 			this->HardLevelList->ForeColor = System::Drawing::Color::AliceBlue;
 			this->HardLevelList->Location = System::Drawing::Point(20, 184);
@@ -501,6 +472,7 @@ namespace MemoryTrain {
 			this->NumStageList->Controls->Add(this->Stage5);
 			this->NumStageList->Controls->Add(this->Stage2);
 			this->NumStageList->Controls->Add(this->Stage4);
+
 			this->NumStageList->Font = (gcnew System::Drawing::Font(L"Roboto", 15.25F));
 			this->NumStageList->ForeColor = System::Drawing::Color::AliceBlue;
 			this->NumStageList->Location = System::Drawing::Point(268, 184);
@@ -512,8 +484,7 @@ namespace MemoryTrain {
 			// 
 			// Confirm
 			// 
-			this->Confirm->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(70)), static_cast<System::Int32>(static_cast<System::Byte>(70)),
-				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->Confirm->BackColor = System::Drawing::Color::FromArgb(70, 70, 70);
 			this->Confirm->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Confirm->FlatAppearance->BorderSize = 0;
 			this->Confirm->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
@@ -527,15 +498,6 @@ namespace MemoryTrain {
 			this->Confirm->UseVisualStyleBackColor = false;
 			this->Confirm->Click += gcnew System::EventHandler(this, &MemoryTrain::Confirm_CheckedChanged);
 			// 
-			// Header
-			// 
-			this->Header->Dock = System::Windows::Forms::DockStyle::Top;
-			this->Header->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold));
-			this->Header->ForeColor = System::Drawing::Color::AliceBlue;
-			this->Header->Name = L"Header";
-			this->Header->Size = System::Drawing::Size(700, 50);
-			this->Header->TabIndex = 0;
-			// 
 			// Condition
 			// 
 			this->Condition->Font = (gcnew System::Drawing::Font(L"Roboto", 15));
@@ -548,13 +510,11 @@ namespace MemoryTrain {
 			// Start
 			// 
 			this->Start->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->Start->Dock = System::Windows::Forms::DockStyle::Bottom;
 			this->Start->Font = (gcnew System::Drawing::Font(L"Roboto", 18.25F));
 			this->Start->ForeColor = System::Drawing::Color::AliceBlue;
-			this->Start->Location = System::Drawing::Point(25, 100);
-			this->Start->Margin = System::Windows::Forms::Padding(100);
+			this->Start->Location = System::Drawing::Point(350, 460);
 			this->Start->Name = L"Start";
-			this->Start->Size = System::Drawing::Size(70, 40);
+			this->Start->Size = System::Drawing::Size(350, 40);
 			this->Start->TabIndex = 0;
 			this->Start->Text = L"Начать";
 			this->Start->Click += gcnew System::EventHandler(this, &MemoryTrain::Start_CheckedChanged);
@@ -636,25 +596,20 @@ namespace MemoryTrain {
 			this->Continue->TabIndex = 22;
 			this->Continue->Text = L"Продолжить";
 			this->Continue->Click += gcnew System::EventHandler(this, &MemoryTrain::Continue_CheckedChanged);
-			//
-			// Buff
-			// 
-			this->Buff->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->Buff->Size = System::Drawing::Size(350, 40);
 			// 
 			// MemoryTrain
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(13, 26);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
-				static_cast<System::Int32>(static_cast<System::Byte>(60)));
-			this->ClientSize = System::Drawing::Size(700, 500);
 			this->Controls->Add(this->Confirm);
 			this->Controls->Add(this->NumStageList);
 			this->Controls->Add(this->HardLevelList);
-			this->Controls->Add(this->StartText);
+			this->Controls->Add(this->Header);
+
+			this->AutoScaleDimensions = System::Drawing::SizeF(13, 26);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(60,60,60);
+			this->ClientSize = System::Drawing::Size(700, 500);
 			this->Cursor = System::Windows::Forms::Cursors::Arrow;
-			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F));
+			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", .25F));
 			this->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
@@ -662,8 +617,10 @@ namespace MemoryTrain {
 			this->RightToLeftLayout = true;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Тренажер памяти";
+
 			this->HardLevelList->ResumeLayout(false);
 			this->NumStageList->ResumeLayout(false);
+
 			this->ResumeLayout(false);
 
 		}
@@ -699,17 +656,17 @@ namespace MemoryTrain {
 
 	}
 	private: void OutputGenWord() {
-		Controls->Clear();
+		this->Controls->Clear();
 		Creating();
 		this->Header->Text = Stage + L" Этап " + (CorrectInputs / 3 + 1) + L" Стадия." +
 			L" Правильно введено: " + CorrectInputs % 3;
 		this->GenLine->Text = L"";
 		this->GenLine->Text = gcnew System::String(WordsLine.c_str());
 		this->Controls->Add(this->GenLine);
-		GenLine->Show();
+		this->GenLine->Show();
 
 		this->Controls->Add(this->PreparingLine);
-		PreparingLine->Show();
+		this->PreparingLine->Show();
 		this->Controls->Add(this->Header);
 		for (int k = 19; k > 0;k -= 2) {
 			this->PreparingLine->Text = gcnew System::String(LoadLine.substr(0, k).c_str());
@@ -719,14 +676,14 @@ namespace MemoryTrain {
 			else Sleep(TimeMemory[HardLevel][1] / 10);
 		}
 
-		GenLine->Hide();
-		PreparingLine->Hide();
+		this->GenLine->Hide();
+		this->PreparingLine->Hide();
 
 		this->Controls->Add(this->UsersInput);
-		UsersInput->Text = L"";
-		UsersInput->Show();
-		UsersInput->Enabled = true;
-		UsersInput->Focus();
+		this->UsersInput->Text = L"";
+		this->UsersInput->Show();
+		this->UsersInput->Enabled = true;
+		this->UsersInput->Focus();
 
 	}
 	private: void OutputCond() {
@@ -734,49 +691,59 @@ namespace MemoryTrain {
 
 		this->Header->Text = L"Правила " + (Stage)+L" этапа";
 		this->Header->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-		this->Header->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold));
+		this->Header->Font = (gcnew System::Drawing::Font(L"Roboto", 20, System::Drawing::FontStyle::Bold));
 
 		this->Condition->Text = gcnew System::String(Cond[Stage - 1].c_str());
 		this->Condition->Show();
 		this->Controls->Add(this->Header);
 		this->Controls->Add(this->Condition);
+		this->Controls->Add(this->Home);
 		this->Controls->Add(this->Start);
 
 	}
 
 	private: System::Void HardLevel_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		HardLevel1->ForeColor = System::Drawing::Color::AliceBlue;
-		HardLevel2->ForeColor = System::Drawing::Color::AliceBlue;
-		HardLevel3->ForeColor = System::Drawing::Color::AliceBlue;
-		HardLevel4->ForeColor = System::Drawing::Color::AliceBlue;
-		HardLevel5->ForeColor = System::Drawing::Color::AliceBlue;
+		this->HardLevel1->ForeColor = System::Drawing::Color::AliceBlue;
+		this->HardLevel2->ForeColor = System::Drawing::Color::AliceBlue;
+		this->HardLevel3->ForeColor = System::Drawing::Color::AliceBlue;
+		this->HardLevel4->ForeColor = System::Drawing::Color::AliceBlue;
+		this->HardLevel5->ForeColor = System::Drawing::Color::AliceBlue;
 		RadioButton^ radiobutton = safe_cast<RadioButton^>(sender);
 		radiobutton->ForeColor = System::Drawing::Color::Orange;
-		HardLevel = radiobutton->Text[0] - 49;
+		this->HardLevel = radiobutton->Text[0] - 49;
 	}
 	private: System::Void NumStage_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		Stage1->ForeColor = System::Drawing::Color::AliceBlue;
-		Stage2->ForeColor = System::Drawing::Color::AliceBlue;
-		Stage3->ForeColor = System::Drawing::Color::AliceBlue;
-		Stage4->ForeColor = System::Drawing::Color::AliceBlue;
-		Stage5->ForeColor = System::Drawing::Color::AliceBlue;
+		this->Stage1->ForeColor = System::Drawing::Color::AliceBlue;
+		this->Stage2->ForeColor = System::Drawing::Color::AliceBlue;
+		this->Stage3->ForeColor = System::Drawing::Color::AliceBlue;
+		this->Stage4->ForeColor = System::Drawing::Color::AliceBlue;
+		this->Stage5->ForeColor = System::Drawing::Color::AliceBlue;
 		RadioButton^ radiobutton = safe_cast<RadioButton^>(sender);
 		radiobutton->ForeColor = System::Drawing::Color::Orange;
 		Stage = radiobutton->Text[0] - 48;
 	}
 	private: System::Void Confirm_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		this->Header->Size = System::Drawing::Size(700, 50);
+		this->Header->Font = (gcnew System::Drawing::Font(L"Roboto", 20, System::Drawing::FontStyle::Bold));
 		OutputCond();
 	}
 	private: System::Void Home_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		this->Home->Size = System::Drawing::Size(350, 40);
+
+		this->Header->Font = (gcnew System::Drawing::Font(L"Roboto", 30.25F));
+		this->Header->Size = System::Drawing::Size(700, 100);
+		this->Header->Text = L"Выберите уровень сложности и желаемый этап";
+
 		CorrectInputs = 0;
 		for (int i = 0;i < Num_Word; i++)
 			Processed_Words[i] = "";
 		Num_Word = 0;
+
 		this->Controls->Clear();
 		this->Controls->Add(this->Confirm);
 		this->Controls->Add(this->NumStageList);
 		this->Controls->Add(this->HardLevelList);
-		this->Controls->Add(this->StartText);
+		this->Controls->Add(this->Header);
 	}
 	
 	private: System::Void Continue_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -789,20 +756,21 @@ namespace MemoryTrain {
 		if (e->KeyChar == 13) {
 
 			e->Handled = true;
-			UsersInput->Enabled = false;
-			UsersInput->Select(UsersInput->Text->Length, 0);
-			UsersInput->Text = UsersInput->Text->ToUpper();
+			this->CheckedLine->Text = L"";
+			this->UsersInput->Enabled = false;
+			this->UsersInput->Select(this->UsersInput->Text->Length, 0);
+			this->UsersInput->Text = this->UsersInput->Text->ToUpper();
 			string UsersString{};
 
-			for (int i = 0; i < UsersInput->Text->Length; i++)
-				if (UsersInput->Text[i] == 32) UsersString += UsersInput->Text[i];
-				else  if (UsersInput->Text[i] != '\n') UsersString += UsersInput->Text[i] - 848;
+			for (int i = 0; i < this->UsersInput->Text->Length; i++)
+				if (this->UsersInput->Text[i] == 32) UsersString += this->UsersInput->Text[i];
+				else  if (UsersInput->Text[i] != '\n') UsersString += this->UsersInput->Text[i] - 848;
 			
-			CheckedLine->Text = gcnew System::String(UsersString.c_str());
+			gcnew System::String(UsersString.c_str());
 
-			UsersInput->Hide();
-			Controls->Add(CheckedLine);
-			Controls->Add(Header);
+			this->UsersInput->Hide();
+			this->Controls->Add(this->CheckedLine);
+			this->Controls->Add(this->Header);
 
 			UsersWordsList = Split(UsersString);
 
@@ -823,43 +791,58 @@ namespace MemoryTrain {
 			}
 
 			if (CorrCheck) {
+
 				this->Message->ForeColor = System::Drawing::Color::FromArgb(100, 255, 100);
-				this->Message->Text = L"ВЕРНО!";
+				this->Message->Text = gcnew System::String(UsersString.c_str()) + L"\n\nВЕРНО!";
 				this->Controls->Add(Message);
 
-				PreparingLine->Show();
+				this->PreparingLine->Show();
 				for (int k = 19; k > 0;k -= 2) {
 					this->PreparingLine->Text = gcnew System::String(LoadLine.substr(0, k).c_str());
 				
 					Application::DoEvents();
 					Sleep(100);
 				}
+
 				CorrectInputs++;
 				if (CorrectInputs == 12) {
-					Stage++;
 					CorrectInputs = 0;
-					OutputCond();
+					
+					Stage++;
+					if (Stage <= 5) OutputCond();
+
+					else {
+						this->CheckedLine->Hide();
+						this->PreparingLine->Hide();
+						this->Message->ForeColor = System::Drawing::Color::White;
+						this->Message->Text = L"Вы завершили последний пятый этап. Пройдите обратно на начальную страницу или закройте программу.";
+						
+						this->Home->Size = System::Drawing::Size(700,40);
+
+						this->Controls->Add(this->Home);
+						this->Controls->Add(this->Message);
+						this->Home->Show();
+						this->Message->Show();
+
+					}
 				}
 				else OutputGenWord();
 			}
 
 			else {
+				this->CheckedLine->Text = this->GenLine->Text;
 				this->Message->ForeColor = System::Drawing::Color::FromArgb(255, 100, 100);
-				this->Message->Text = GenLine->Text + L"\n\n" + L"ВЫ ОШИБЛИСЬ!";
-				this->Controls->Add(Home);
-				this->Controls->Add(Continue);
-				this->Controls->Add(Message);
+				this->Message->Text = gcnew System::String(UsersString.c_str()) +L"\n\n" + L"ВЫ ОШИБЛИСЬ!";
+				this->Controls->Add(this->Home);
+				this->Controls->Add(this->Continue);
+				this->Controls->Add(this->Message);
 			}
 			UsersString = "";
 		}
 		
-		/*else if (UsersInput->Text->Length < 102 && L'а' <= e->KeyChar && e->KeyChar <= L'я') {
-			UsersInput->Text = UsersInput->Text->ToUpper();
-			UsersInput->Select(UsersInput->Text->Length, 0);
-		}*/
 		else if ((!(L'а' <= e->KeyChar && e->KeyChar <= L'я') &&
 				!(L'А' <= e->KeyChar && e->KeyChar <= L'Я') && e->KeyChar != 8
-			&& e->KeyChar != 32) || UsersInput->Text->Length == 102) {
+			&& e->KeyChar != 32) || this->UsersInput->Text->Length == 102) {
 			e->Handled = true;
 		}
 
