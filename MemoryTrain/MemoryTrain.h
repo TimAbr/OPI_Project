@@ -16,7 +16,6 @@ using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
 
-string Return_Word(int, int);
 string Reverse(string);
 vector <string> Split(string);
 
@@ -28,16 +27,13 @@ bool InputCheckFifthStep(vector<string>, vector <string>);
 void Creating();
 void OutputGenWord();
 void ReadFiles();
+
 namespace MemoryTrain {
 
 	
 	const int TotalWordsCount = 5;
-	const int TotalGenWords = 400;
 	const string LoadLine{ "--------------------" };
-	char * font = "Book Antiqua";
 
-	string Processed_Words[TotalGenWords]{};
-	int Num_Word{ 0 };
 	int CorrectInputs{ 0 };
 
 	int TimeMemory[5][2]{ {7000, 15000}, {5000, 10000}, {3000, 7000}, {1500, 5000}, {1000, 3000} };
@@ -324,6 +320,7 @@ namespace MemoryTrain {
 			this->GenLine->Size = System::Drawing::Size(100, 23);
 			this->GenLine->TabIndex = 0;
 			this->GenLine->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->GenLine->Enabled = false;
 			// 
 			// CheckedLine
 			// 
