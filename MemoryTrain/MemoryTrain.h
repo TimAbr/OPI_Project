@@ -793,6 +793,11 @@ namespace MemoryTrain {
 
 	private: System::Void UsersInput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 
+		if (this->UsersInput->Text->Length > 102) {
+			e->Handled = true;
+			this->UsersInput->Text = this->UsersInput->Text->Substring(0,102);
+			this->UsersInput->Select(this->UsersInput->Text->Length, 0);
+		}
 		if (e->KeyChar == 13) {
 
 			e->Handled = true;
@@ -886,7 +891,7 @@ namespace MemoryTrain {
 		
 		else if ((!(L'à' <= e->KeyChar && e->KeyChar <= L'ÿ') &&
 				!(L'À' <= e->KeyChar && e->KeyChar <= L'ß') && e->KeyChar != 8
-			&& e->KeyChar != 32) || this->UsersInput->Text->Length == 102) {
+			&& e->KeyChar != 32)) {
 			e->Handled = true;
 		}
 
