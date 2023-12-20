@@ -1,13 +1,15 @@
 ﻿  MemoryTrain.cpp
-D:\ASP.NET\MemoryTrain\MemoryTrain.h(123,18): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-D:\ASP.NET\MemoryTrain\MemoryTrain.h(124,16): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-D:\ASP.NET\MemoryTrain\MemoryTrain.h(135,18): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-D:\ASP.NET\MemoryTrain\MemoryTrain.h(140,44): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\ASP.NET\MemoryTrain\MemoryTrain.h(798,61): warning C4244: аргумент: преобразование "wchar_t" в "_Elem", возможна потеря данных
+D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(123,18): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(124,16): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(134,18): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(139,44): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(804,73): warning C4244: аргумент: преобразование "wchar_t" в "_Elem", возможна потеря данных
           with
           [
               _Elem=char
           ]
-D:\ASP.NET\MemoryTrain\MemoryTrain.cpp(9,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.cpp(9,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  Создание кода...
   MemoryTrain.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
-  MemoryTrain.vcxproj -> D:\ASP.NET\MemoryTrain\x64\Debug\MemoryTrain.exe
+  MemoryTrain.vcxproj -> D:\OPI_last_project\OPI_Project\MemoryTrain\x64\Debug\MemoryTrain.exe

@@ -1,9 +1,9 @@
 ﻿  MemoryTrain.cpp
-D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(124,18): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(125,16): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(135,18): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(140,44): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(803,73): warning C4244: аргумент: преобразование "wchar_t" в "_Elem", возможна потеря данных
+D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(123,18): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(124,16): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(134,18): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(139,44): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(804,73): warning C4244: аргумент: преобразование "wchar_t" в "_Elem", возможна потеря данных
           with
           [
               _Elem=char

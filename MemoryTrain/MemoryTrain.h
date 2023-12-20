@@ -20,7 +20,6 @@ string Return_Word(int, int);
 string Reverse(string);
 vector <string> Split(string);
 
-bool InputCheckFirstStep(string, string);
 bool InputCheckSecondStep(vector<string>, vector <string>);
 bool InputCheckThirdStep(vector<string>, vector <string>);
 bool InputCheckForthStep(vector<string>, vector <string>);
@@ -150,6 +149,7 @@ namespace MemoryTrain {
 				if (UsersWords.back() == GenWords[j]) {
 					UsersWords.pop_back();
 					flag = true;
+					GenWords[j] = "";
 				}
 			}
 			if (!flag)
@@ -172,6 +172,7 @@ namespace MemoryTrain {
 				if (Reverse(UsersWords.back()) == GenWords[j]) {
 					UsersWords.pop_back();
 					flag = true;
+					GenWords[j] = "";
 				}
 			}
 			if (!flag)
