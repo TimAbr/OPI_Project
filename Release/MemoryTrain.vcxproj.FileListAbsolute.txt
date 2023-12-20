@@ -6,3 +6,7 @@ D:\OPI_last_project\OPI_Project\MemoryTrain\x64\Release\MemoryTrain.vcxproj.Asse
 D:\OPI_last_project\OPI_Project\MemoryTrain\x64\Release\MemoryTrain.MemoryTrain.resources
 D:\OPI_last_project\OPI_Project\MemoryTrain\x64\Release\MemoryTrain.vcxproj.GenerateResource.cache
 D:\OPI_last_project\OPI_Project\MemoryTrain\x64\Release\MemoryTrain.exe
+C:\Users\USER\Desktop\MemoryTrain\x64\Release\MemoryTrain.vcxproj.AssemblyReference.cache
+C:\Users\USER\Desktop\MemoryTrain\x64\Release\MemoryTrain.MemoryTrain.resources
+C:\Users\USER\Desktop\MemoryTrain\x64\Release\MemoryTrain.vcxproj.GenerateResource.cache
+C:\Users\USER\Desktop\MemoryTrain\x64\Release\MemoryTrain.exe
