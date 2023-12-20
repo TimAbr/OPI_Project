@@ -27,7 +27,7 @@ bool InputCheckFifthStep(vector<string>, vector <string>);
 
 void Creating();
 void OutputGenWord();
-
+void ReadFiles();
 namespace MemoryTrain {
 
 	
@@ -42,6 +42,10 @@ namespace MemoryTrain {
 
 	int TimeMemory[5][2]{ {7000, 15000}, {5000, 10000}, {3000, 7000}, {1500, 5000}, {1000, 3000} };
 	
+	vector<vector<string>> ConstTotalWords(4);
+
+	vector<vector<string>> PossibleWords;
+
 	string WordsLine;
 	string FirstStageWord{};
 
@@ -61,12 +65,14 @@ namespace MemoryTrain {
 	public:
 		MemoryTrain(void)
 		{
+			ReadFiles();
 			InitializeComponent();
 			//
 			//TODO: добавьте код конструктора
 			//
 		}
 
+		
 	protected:
 		/// <summary>
 		/// Освободить все используемые ресурсы.
@@ -78,6 +84,35 @@ namespace MemoryTrain {
 				delete components;
 			}
 		}
+
+	void ReadFiles() {
+		
+		fstream file;
+		string Word;
+		for (int i = 0;i < 4;i++) {
+			ConstTotalWords[i].resize(100);
+			switch (i) {
+				case 0:
+					file.open("5_letters.txt");
+					for (int j = 0;!file.eof();getline(file, Word), ConstTotalWords[i][j++] = Word.substr(0, 5 + i));
+					break;
+				case 1:
+					file.open("6_letters.txt");
+					for (int j = 0;!file.eof();getline(file, Word), ConstTotalWords[i][j++] = Word.substr(0, 5 + i));
+					break;
+				case 2:
+					file.open("7_letters.txt");
+					for (int j = 0;!file.eof();getline(file, Word), ConstTotalWords[i][j++] = Word.substr(0, 5 + i));
+					break;
+				case 3:
+					file.open("8_letters.txt");
+					for (int j = 0;!file.eof();getline(file, Word), ConstTotalWords[i][j++] = Word.substr(0, 5 + i));
+					break;
+			}
+			file.close();
+		}
+		PossibleWords = ConstTotalWords;
+	}
 
 	string Return_Word(int letters, int Word_Index) {
 
@@ -104,12 +139,10 @@ namespace MemoryTrain {
 		if (file.is_open()) {
 			for (int lineno = 1; (lineno <= Word_Index) && getline(file, Word); lineno++);
 			for (int i = 0; !Flag && i < Num_Word; i++)
-				Flag = (Processed_Words[i] == Word);
+				Flag = (Processed_Words[i] == Word.substr(0, letters));
 		}
 		else {
-
 			System::Windows::Forms::MessageBox::Show("Файл не открыт!");
-
 		}
 
 		file.close();
@@ -665,15 +698,21 @@ namespace MemoryTrain {
 #pragma endregion
 	
 	private: void Creating() {
-		switch (Stage) {
 
+		int Num;
+		int Letters;
+		switch (Stage) {
 		case 1:
 			GeneratedWords.resize(1);
-			do {
-				GeneratedWords[0] = Return_Word(5 + CorrectInputs / 3, 1 + rand() % (100));
-			} while (GeneratedWords[0] == "");
-			Processed_Words[Num_Word++] = GeneratedWords[0];
+			Num = rand() % (PossibleWords[CorrectInputs / 3].size());
+			Letters = CorrectInputs / 3;
+
+			GeneratedWords[0] = PossibleWords[Letters][Num];
 			WordsLine = GeneratedWords[0];
+
+			for (int i = Num; Num < PossibleWords.size() - 1;PossibleWords[Letters][i] = PossibleWords[Letters][i + 1]);
+			PossibleWords[CorrectInputs / 3].pop_back();
+
 
 			break;
 		case 2:
@@ -682,12 +721,17 @@ namespace MemoryTrain {
 		case 5:
 			WordsLine = {};
 			GeneratedWords.resize(5 + CorrectInputs / 3);
-			for (int i = 0;i < TotalWordsCount + CorrectInputs / 3; i++) {
-				do {
-					GeneratedWords[i] = Return_Word(5 + rand() % (4), 1 + rand() % (100));
-				} while (GeneratedWords[i] == "");
+
+			for (int i = 0;i < TotalWordsCount + CorrectInputs / 3; i++){
+				Letters = rand() % (4);
+				Num = rand() % (PossibleWords[CorrectInputs / 3].size());
+
+				GeneratedWords[i] = PossibleWords[Letters][Num];
+
+				for (int i = Num; Num < PossibleWords.size() - 1;PossibleWords[Letters][i] = PossibleWords[Letters][i + 1]);
+				PossibleWords[Letters].pop_back();
+
 				WordsLine += GeneratedWords[i] + ' ';
-				Processed_Words[Num_Word++] = GeneratedWords[i];
 			}
 			break;
 		}
@@ -773,9 +817,6 @@ namespace MemoryTrain {
 		this->Header->Text = L"Выберите уровень сложности и желаемый этап";
 
 		CorrectInputs = 0;
-		for (int i = 0;i < Num_Word; i++)
-			Processed_Words[i] = "";
-		Num_Word = 0;
 
 		this->Controls->Clear();
 		this->Controls->Add(this->Confirm);
@@ -846,6 +887,8 @@ namespace MemoryTrain {
 				if (CorrectInputs == 12) {
 					CorrectInputs = 0;
 					
+					PossibleWords = ConstTotalWords;
+
 					Stage++;
 					if (Stage <= 5) OutputCond();
 
@@ -868,6 +911,8 @@ namespace MemoryTrain {
 			}
 
 			else {
+				PossibleWords = ConstTotalWords;
+
 				this->CheckedLine->Text = this->GenLine->Text;
 				this->Message->ForeColor = System::Drawing::Color::FromArgb(155, 30, 30);
 				this->Message->Text = L"\n\n" + gcnew System::String(UsersString.c_str()) + L"\n\n" + L"ВЫ ОШИБЛИСЬ!";
@@ -890,14 +935,17 @@ namespace MemoryTrain {
 		this->Controls->Clear();
 		this->Controls->Add(this->Header);
 		this->Controls->Add(this->PreparingLine);
+
 		Condition->Hide();
 		PreparingLine->Show();
+
 		this->Header->Text = Stage + L" Этап " + (CorrectInputs / 3 + 1) + L" Стадия." +
 			L" Правильно введено: " + CorrectInputs % 3;
 		this->Controls->Add(this->Message);
 		this->Message->Text = "Приготовьтесь!";
 		this->Message->ForeColor = System::Drawing::Color::Black;
 		Message->Show();
+
 		for (int k = 19; k > 0;k -= 2) {
 			this->PreparingLine->Text = gcnew System::String(LoadLine.substr(0, k).c_str());
 			this->PreparingLine->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
