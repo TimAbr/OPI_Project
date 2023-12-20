@@ -50,10 +50,10 @@ namespace MemoryTrain {
 
 	bool CorrCheck{ false };
 
-	vector<string> Cond{ "На экране на некоторое время отображается слово из 5 букв, а затем пропадает. Пользователь вводит с клавиатуры это же слово, но в обратном порядке('перевернутым'). После выводится сообщение о верном\\неверном вводе. Затем появляется новое слово с тем же количеством букв и ожидается новый ввод 'перевернутого' слова. После правильно введенных трех подряд верных 'перевернутых' слов начинают выводиться слова длинее на одну букву и так до тех пор, пока Вы не введете подряд три 'перевернутых' 8 буквенных слова. На этом этап 1 завершается.",
+	vector<string> Cond{ "На экране на некоторое время отображается слово из 5 букв, а затем пропадает. Ваша задача ввести это же слово, но в обратном порядке. После выводится сообщение о верном или неверном вводе соответсвенно. Затем появляется новое слово с тем же количеством букв. После правильно введенных трех подряд верных 'перевернутых' слов начинают выводиться слова длинее на одну букву и так до тех пор, пока Вы не введете подряд три 'перевернутых' 8 буквенных слова. На этом этап 1 завершается.",
 		"На экране на некоторое время отображается последовательность из 5 различных слов, а затем пропадает. Вам необходимо ввести эти же слова в произвольном порядке. Затем появляется новая последовательность из других 5 слов. После правильно введенных трех подряд последовательностей из 5 слов начинают выводиться послдовательности из 6 слов и так до тех пор, пока Вы не введете подряд три правильных последовательности из 8 слов.", 
-		"На экране на некоторое время отображается последовательность из 5 различных слов, а затем пропадает. Однако в отличие от второго этапа на третьем Вам необходимо ввести эти же слова в том же порядке, в котором они были Вам показаны. Затем появляется новая последовательность из других 5 слов. После правильно введенных трех подряд последовательностей из 5 слов начинают выводиться послдовательности из 6 слов и так до тех пор, пока Вы не введете подряд три правильных последовательности из 8 слов.", 
-		"Четвертый этап является смесью первого и второго. На экране на некоторое время отображается последовательность из 5 различных слов, а затем пропадает. Вам необходимо ввести эти же слова в произвольном порядке, однако сами слова должны быть 'перевернуты'. Затем появляется новая последовательность из других 5 слов. После правильно введенных трех подряд последовательностей из 5 слов начинают выводиться послдовательности из 6 слов и так до тех пор, пока Вы не введете подряд три правильных последовательности из 8 слов.", 
+		"На экране на некоторое время отображается последовательность из 5 различных слов, а затем пропадает. Однако, в отличие от второго этапа, на третьем Вам необходимо ввести эти же слова в том же порядке, в котором они были Вам показаны. Затем появляется новая последовательность из других 5 слов. После правильно введенных трех подряд последовательностей из 5 слов начинают выводиться послдовательности из 6 слов и так до тех пор, пока Вы не введете подряд три правильных последовательности из 8 слов.", 
+		"Четвертый этап является смесью первого и второго. На экране на некоторое время отображается последовательность из 5 различных слов, а затем пропадает. Вам необходимо ввести эти же слова в произвольном порядке, однако сами слова должны быть 'перевернуты'. Затем появляется новая последовательность из других 5 слов. После правильно введенных трех подряд последовательностей из 5 слов начинают выводиться последовательности из 6 слов и так до тех пор, пока Вы не введете подряд три правильных последовательности из 8 слов.", 
 		"Пятый этап - слияние первого и третьего. На экране на некоторое время отображается последовательность из 5 различных слов, а затем пропадает. Вам необходимо ввести эти же слова в том же порядке, в котором они были Вам показаны, и они так же должны быть 'перевернуты'. Затем появляется новая последовательность из других 5 слов. После правильно введенных трех подряд последовательностей из 5 слов начинают выводиться послдовательности из 6 слов и так до тех пор, пока Вы не введете подряд три правильных последовательности из 8 слов."};
 
 	public ref class MemoryTrain : public System::Windows::Forms::Form
@@ -220,6 +220,7 @@ namespace MemoryTrain {
 
 	private: int HardLevel{ 1 }, Stage{ 1 };
 
+
 	private: 
 	
 	protected:
@@ -274,7 +275,7 @@ namespace MemoryTrain {
 			// Message
 			// 
 			this->Message->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->Message->Font = (gcnew System::Drawing::Font(L"Century", 20));
+			this->Message->Font = (gcnew System::Drawing::Font(L"Roboto", 20));
 			this->Message->ForeColor = System::Drawing::Color::Black;
 			this->Message->Location = System::Drawing::Point(0, 0);
 			this->Message->Name = L"Message";
@@ -299,7 +300,7 @@ namespace MemoryTrain {
 			// 
 			// Condition
 			// 
-			this->Condition->Font = (gcnew System::Drawing::Font(L"Century", 16));
+			this->Condition->Font = (gcnew System::Drawing::Font(L"Roboto", 16));
 			this->Condition->ForeColor = System::Drawing::Color::Black;
 			this->Condition->Location = System::Drawing::Point(25, 70);
 			this->Condition->Name = L"Condition";
@@ -309,7 +310,7 @@ namespace MemoryTrain {
 			// PreparingLine
 			// 
 			this->PreparingLine->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->PreparingLine->Font = (gcnew System::Drawing::Font(L"Century", 50));
+			this->PreparingLine->Font = (gcnew System::Drawing::Font(L"Roboto", 50));
 			this->PreparingLine->ForeColor = System::Drawing::Color::Black;
 			this->PreparingLine->Location = System::Drawing::Point(0, 0);
 			this->PreparingLine->Name = L"PreparingLine";
@@ -320,7 +321,7 @@ namespace MemoryTrain {
 			// GenLine
 			// 
 			this->GenLine->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->GenLine->Font = (gcnew System::Drawing::Font(L"Times New Roman", 30, System::Drawing::FontStyle::Bold));
+			this->GenLine->Font = (gcnew System::Drawing::Font(L"Roboto", 30, System::Drawing::FontStyle::Bold));
 			this->GenLine->ForeColor = System::Drawing::Color::Black;
 			this->GenLine->Location = System::Drawing::Point(0, 0);
 			this->GenLine->Name = L"GenLine";
@@ -332,7 +333,7 @@ namespace MemoryTrain {
 			// 
 			this->CheckedLine->AutoSize = true;
 			this->CheckedLine->Dock = System::Windows::Forms::DockStyle::Top;
-			this->CheckedLine->Font = (gcnew System::Drawing::Font(L"Century", 20));
+			this->CheckedLine->Font = (gcnew System::Drawing::Font(L"Roboto", 20));
 			this->CheckedLine->ForeColor = System::Drawing::Color::Black;
 			this->CheckedLine->Location = System::Drawing::Point(0, 0);
 			this->CheckedLine->MaximumSize = System::Drawing::Size(700, 300);
@@ -344,14 +345,14 @@ namespace MemoryTrain {
 			// 
 			// HardLevel1
 			// 
-			this->HardLevel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(150)));
+			this->HardLevel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(138)),
+				static_cast<System::Int32>(static_cast<System::Byte>(194)));
 			this->HardLevel1->Checked = true;
 			this->HardLevel1->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->HardLevel1->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->HardLevel1->FlatAppearance->BorderSize = 0;
 			this->HardLevel1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.25F));
-			this->HardLevel1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+			this->HardLevel1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(178)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->HardLevel1->Location = System::Drawing::Point(7, 44);
 			this->HardLevel1->Name = L"HardLevel1";
@@ -364,8 +365,8 @@ namespace MemoryTrain {
 			// 
 			// HardLevel2
 			// 
-			this->HardLevel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(150)));
+			this->HardLevel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(138)),
+				static_cast<System::Int32>(static_cast<System::Byte>(194)));
 			this->HardLevel2->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->HardLevel2->FlatAppearance->BorderColor = System::Drawing::Color::White;
 			this->HardLevel2->FlatAppearance->BorderSize = 0;
@@ -381,8 +382,8 @@ namespace MemoryTrain {
 			// 
 			// HardLevel3
 			// 
-			this->HardLevel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(150)));
+			this->HardLevel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(138)),
+				static_cast<System::Int32>(static_cast<System::Byte>(194)));
 			this->HardLevel3->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->HardLevel3->FlatAppearance->BorderColor = System::Drawing::Color::White;
 			this->HardLevel3->FlatAppearance->BorderSize = 0;
@@ -398,8 +399,8 @@ namespace MemoryTrain {
 			// 
 			// HardLevel4
 			// 
-			this->HardLevel4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(150)));
+			this->HardLevel4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(138)),
+				static_cast<System::Int32>(static_cast<System::Byte>(194)));
 			this->HardLevel4->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->HardLevel4->FlatAppearance->BorderColor = System::Drawing::Color::White;
 			this->HardLevel4->FlatAppearance->BorderSize = 0;
@@ -415,8 +416,8 @@ namespace MemoryTrain {
 			// 
 			// HardLevel5
 			// 
-			this->HardLevel5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(150)));
+			this->HardLevel5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(138)),
+				static_cast<System::Int32>(static_cast<System::Byte>(194)));
 			this->HardLevel5->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->HardLevel5->FlatAppearance->BorderColor = System::Drawing::Color::White;
 			this->HardLevel5->FlatAppearance->BorderSize = 0;
@@ -432,14 +433,14 @@ namespace MemoryTrain {
 			// 
 			// Stage1
 			// 
-			this->Stage1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(150)));
+			this->Stage1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(138)),
+				static_cast<System::Int32>(static_cast<System::Byte>(194)));
 			this->Stage1->Checked = true;
 			this->Stage1->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Stage1->FlatAppearance->BorderColor = System::Drawing::Color::White;
 			this->Stage1->FlatAppearance->BorderSize = 0;
 			this->Stage1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10.25F));
-			this->Stage1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+			this->Stage1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(178)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->Stage1->Location = System::Drawing::Point(7, 44);
 			this->Stage1->Name = L"Stage1";
@@ -452,8 +453,8 @@ namespace MemoryTrain {
 			// 
 			// Stage2
 			// 
-			this->Stage2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(150)));
+			this->Stage2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(138)),
+				static_cast<System::Int32>(static_cast<System::Byte>(194)));
 			this->Stage2->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Stage2->FlatAppearance->BorderColor = System::Drawing::Color::White;
 			this->Stage2->FlatAppearance->BorderSize = 0;
@@ -469,8 +470,8 @@ namespace MemoryTrain {
 			// 
 			// Stage3
 			// 
-			this->Stage3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(150)));
+			this->Stage3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(138)),
+				static_cast<System::Int32>(static_cast<System::Byte>(194)));
 			this->Stage3->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Stage3->FlatAppearance->BorderColor = System::Drawing::Color::White;
 			this->Stage3->FlatAppearance->BorderSize = 0;
@@ -486,8 +487,8 @@ namespace MemoryTrain {
 			// 
 			// Stage4
 			// 
-			this->Stage4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(150)));
+			this->Stage4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(138)),
+				static_cast<System::Int32>(static_cast<System::Byte>(194)));
 			this->Stage4->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Stage4->FlatAppearance->BorderColor = System::Drawing::Color::White;
 			this->Stage4->FlatAppearance->BorderSize = 0;
@@ -503,8 +504,8 @@ namespace MemoryTrain {
 			// 
 			// Stage5
 			// 
-			this->Stage5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(150)));
+			this->Stage5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(138)),
+				static_cast<System::Int32>(static_cast<System::Byte>(194)));
 			this->Stage5->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Stage5->FlatAppearance->BorderColor = System::Drawing::Color::White;
 			this->Stage5->FlatAppearance->BorderSize = 0;
@@ -554,8 +555,8 @@ namespace MemoryTrain {
 			// 
 			// Confirm
 			// 
-			this->Confirm->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(150)));
+			this->Confirm->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(138)),
+				static_cast<System::Int32>(static_cast<System::Byte>(194)));
 			this->Confirm->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Confirm->FlatAppearance->BorderColor = System::Drawing::Color::White;
 			this->Confirm->FlatAppearance->BorderSize = 2;
@@ -572,8 +573,8 @@ namespace MemoryTrain {
 			// 
 			// Start
 			// 
-			this->Start->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(150)));
+			this->Start->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(138)),
+				static_cast<System::Int32>(static_cast<System::Byte>(194)));
 			this->Start->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Start->FlatAppearance->BorderColor = System::Drawing::Color::White;
 			this->Start->FlatAppearance->BorderSize = 2;
@@ -590,11 +591,11 @@ namespace MemoryTrain {
 			// 
 			// Continue
 			// 
-			this->Continue->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(150)));
+			this->Continue->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(138)),
+				static_cast<System::Int32>(static_cast<System::Byte>(194)));
 			this->Continue->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Continue->FlatAppearance->BorderColor = System::Drawing::Color::White;
-			this->Continue->FlatAppearance->BorderSize = 1;
+			this->Continue->FlatAppearance->BorderSize = 2;
 			this->Continue->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Continue->Font = (gcnew System::Drawing::Font(L"Century Gothic", 18.25F));
 			this->Continue->ForeColor = System::Drawing::Color::AliceBlue;
@@ -608,11 +609,11 @@ namespace MemoryTrain {
 			// 
 			// Home
 			// 
-			this->Home->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(149)),
-				static_cast<System::Int32>(static_cast<System::Byte>(150)));
+			this->Home->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(138)),
+				static_cast<System::Int32>(static_cast<System::Byte>(194)));
 			this->Home->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Home->FlatAppearance->BorderColor = System::Drawing::Color::White;
-			this->Home->FlatAppearance->BorderSize = 1;
+			this->Home->FlatAppearance->BorderSize = 2;
 			this->Home->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Home->Font = (gcnew System::Drawing::Font(L"Century Gothic", 18.25F));
 			this->Home->ForeColor = System::Drawing::Color::AliceBlue;
@@ -626,8 +627,7 @@ namespace MemoryTrain {
 			// 
 			// UsersInput
 			// 
-			this->UsersInput->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(124)), static_cast<System::Int32>(static_cast<System::Byte>(178)),
-				static_cast<System::Int32>(static_cast<System::Byte>(164)));
+			this->UsersInput->BackColor = System::Drawing::Color::FromArgb(104, 138, 144);
 			this->UsersInput->Font = (gcnew System::Drawing::Font(L"Roboto", 20));
 			this->UsersInput->ForeColor = System::Drawing::Color::White;
 			this->UsersInput->Location = System::Drawing::Point(25, 150);
@@ -639,17 +639,17 @@ namespace MemoryTrain {
 			// 
 			// MemoryTrain
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
+			this->AutoScaleDimensions = System::Drawing::SizeF(11, 24);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(154)), static_cast<System::Int32>(static_cast<System::Byte>(208)),
-				static_cast<System::Int32>(static_cast<System::Byte>(194)));
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(184)), static_cast<System::Int32>(static_cast<System::Byte>(218)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->ClientSize = System::Drawing::Size(699, 500);
 			this->Controls->Add(this->Confirm);
 			this->Controls->Add(this->NumStageList);
 			this->Controls->Add(this->HardLevelList);
 			this->Controls->Add(this->Header);
 			this->Cursor = System::Windows::Forms::Cursors::Arrow;
-			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 0.25F));
+			this->Font = (gcnew System::Drawing::Font(L"Roboto", 0.25F));
 			this->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
@@ -747,7 +747,7 @@ namespace MemoryTrain {
 		this->HardLevel4->ForeColor = System::Drawing::Color::AliceBlue;
 		this->HardLevel5->ForeColor = System::Drawing::Color::AliceBlue;
 		RadioButton^ radiobutton = safe_cast<RadioButton^>(sender);
-		radiobutton->ForeColor = System::Drawing::Color::FromArgb(128, 255, 255);
+		radiobutton->ForeColor = System::Drawing::Color::FromArgb(178, 255, 255);
 		this->HardLevel = radiobutton->Text[0] - 49;
 	}
 	private: System::Void NumStage_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -757,7 +757,7 @@ namespace MemoryTrain {
 		this->Stage4->ForeColor = System::Drawing::Color::AliceBlue;
 		this->Stage5->ForeColor = System::Drawing::Color::AliceBlue;
 		RadioButton^ radiobutton = safe_cast<RadioButton^>(sender);
-		radiobutton->ForeColor = System::Drawing::Color::FromArgb(128, 255, 255);
+		radiobutton->ForeColor = System::Drawing::Color::FromArgb(178, 255, 255);
 		this->Stage = radiobutton->Text[0] - 48;
 	}
 	private: System::Void Confirm_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -830,7 +830,7 @@ namespace MemoryTrain {
 
 			if (CorrCheck) {
 
-				this->Message->ForeColor = System::Drawing::Color::FromArgb(100, 155, 100);
+				this->Message->ForeColor = System::Drawing::Color::FromArgb(30, 155, 30);
 				this->Message->Text = gcnew System::String(UsersString.c_str()) + L"\n\nВЕРНО!";
 				this->Controls->Add(Message);
 
@@ -869,7 +869,7 @@ namespace MemoryTrain {
 
 			else {
 				this->CheckedLine->Text = this->GenLine->Text;
-				this->Message->ForeColor = System::Drawing::Color::FromArgb(155, 100, 100);
+				this->Message->ForeColor = System::Drawing::Color::FromArgb(155, 30, 30);
 				this->Message->Text = L"\n\n" + gcnew System::String(UsersString.c_str()) + L"\n\n" + L"ВЫ ОШИБЛИСЬ!";
 				this->Controls->Add(this->Home);
 				this->Controls->Add(this->Continue);
