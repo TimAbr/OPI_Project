@@ -637,6 +637,7 @@ namespace MemoryTrain {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(184)), static_cast<System::Int32>(static_cast<System::Byte>(218)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->ClientSize = System::Drawing::Size(699, 500);
+			this->MaximizeBox = false;
 			this->Controls->Add(this->Confirm);
 			this->Controls->Add(this->NumStageList);
 			this->Controls->Add(this->HardLevelList);
