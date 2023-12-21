@@ -772,18 +772,11 @@ namespace MemoryTrain {
 	}
 	private: System::Void Home_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->Home->Size = System::Drawing::Size(350, 40);
-
-		this->Header->Font = (gcnew System::Drawing::Font(L"Bahnschrift Condensed", 30.25F));
-		this->Header->Size = System::Drawing::Size(700, 100);
-		this->Header->Text = L"¬ыберите уровень сложности и желаемый этап";
-
+		Stage = 1;
+		HardLevel = 1;
 		CorrectInputs = 0;
-
 		this->Controls->Clear();
-		this->Controls->Add(this->Confirm);
-		this->Controls->Add(this->NumStageList);
-		this->Controls->Add(this->HardLevelList);
-		this->Controls->Add(this->Header);
+		InitializeComponent();
 	}
 	
 	private: System::Void Continue_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -792,8 +785,8 @@ namespace MemoryTrain {
 	}
 
 	private: System::Void UsersInput_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-
-		if (this->UsersInput->Text->Length > 102) {
+		
+		if (this->UsersInput->Text->Length >= 102) {
 			e->Handled = true;
 			this->UsersInput->Text = this->UsersInput->Text->Substring(0,102);
 			this->UsersInput->Select(this->UsersInput->Text->Length, 0);

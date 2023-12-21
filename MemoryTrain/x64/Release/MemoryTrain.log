@@ -3,7 +3,7 @@ D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(115,18): warning C4267
 D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(116,16): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
 D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(126,18): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
 D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(131,44): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(811,73): warning C4244: аргумент: преобразование "wchar_t" в "_Elem", возможна потеря данных
+D:\OPI_last_project\OPI_Project\MemoryTrain\MemoryTrain.h(804,73): warning C4244: аргумент: преобразование "wchar_t" в "_Elem", возможна потеря данных
           with
           [
               _Elem=char
